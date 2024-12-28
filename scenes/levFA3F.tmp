@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgmr22rr2e0s7"]
+
+[ext_resource type="Script" path="res://scripts/game_logic.gd" id="1_x0o2t"]
+[ext_resource type="Texture2D" uid="uid://vfki023yaxbl" path="res://sprites/StartButton.png" id="2_s0di0"]
+[ext_resource type="PackedScene" uid="uid://fpptvpvtjw4w" path="res://scenes/player.tscn" id="3_js3e4"]
+[ext_resource type="PackedScene" uid="uid://cc7y3alsmwqp1" path="res://scenes/blue_totem.tscn" id="3_tuglf"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lguc2"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_x0o2t")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 492.0
+offset_top = -303.0
+offset_right = 548.0
+offset_bottom = -241.0
+icon = ExtResource("2_s0di0")
+
+[node name="Player" parent="." instance=ExtResource("3_js3e4")]
+unique_name_in_owner = true
+position = Vector2(-40, 1)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(0, 169)
+shape = SubResource("WorldBoundaryShape2D_lguc2")
+
+[node name="BlueTotem" parent="." instance=ExtResource("3_tuglf")]
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

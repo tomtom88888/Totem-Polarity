@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0wc1dhfdfmj5"]
+
+[ext_resource type="Script" path="res://scripts/red_totem.gd" id="1_qutl7"]
+[ext_resource type="Texture2D" uid="uid://6ebdv20vm4db" path="res://sprites/RedTotem.png" id="2_m6rl8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6lr05"]
+size = Vector2(71, 106)
+
+[node name="RedTotem" type="Area2D" groups=["totems"]]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_qutl7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_m6rl8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_6lr05")

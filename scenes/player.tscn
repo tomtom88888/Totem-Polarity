@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://fpptvpvtjw4w"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_elr73"]
+[ext_resource type="Texture2D" uid="uid://bqao1ddm2uoof" path="res://sprites/Skibidi_Toilet.png" id="2_0abax"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8qi0a"]
+radius = 32.0
+height = 96.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_elr73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_8qi0a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_0abax")
