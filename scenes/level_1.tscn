@@ -52,10 +52,13 @@ position = Vector2(0, 169)
 shape = SubResource("WorldBoundaryShape2D_lguc2")
 
 [node name="BlueTotem" parent="." instance=ExtResource("3_tuglf")]
-position = Vector2(-182, -6.00003)
+position = Vector2(-178, 29)
 
 [node name="RedTotem" parent="." instance=ExtResource("5_48p20")]
 position = Vector2(250, 120)
+
+[node name="BlueTotem2" parent="." instance=ExtResource("3_tuglf")]
+position = Vector2(-52, -213)
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/RedButton" to="." method="_on_button_pressed"]

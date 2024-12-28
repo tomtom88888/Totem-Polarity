@@ -2,7 +2,9 @@ extends Area2D
 
 @onready var player: CharacterBody2D = %"Player"
 var game_started = false
-var friction = 0.05
+var friction = 0.04
+@export var radius = 200
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,7 +13,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	print(position.distance_to(player.position))
-	if game_started and position.distance_to(player.position) < 200:
+	if game_started and position.distance_to(player.position) < radius:
 		if position.x < player.position.x:
 			player.velocity.x = 70000 / position.distance_to(player.position)
 		else:
