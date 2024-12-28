@@ -2,24 +2,37 @@ extends Area2D
 
 var player
 var game_started = false
-var friction = 0.04
 @export var radius = 200
+var is_dragging = false
+var mouse_offset = Vector2.ZERO
+var move = false
 
-# Called when the node enters the scene tree for the first time.
+func change_move_true():
+	move = true
+	
+func change_move_false():
+	move = false
+
+func start_game():
+	game_started = true
+
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	pass
+	
 func _process(delta: float) -> void:
-	print(position.distance_to(player.position))
+	if is_dragging and move:
+		global_position = get_global_mouse_position() + mouse_offset
 	if game_started and position.distance_to(player.position) < radius:
 		if position.x < player.position.x:
 			player.velocity.x = 70000 / position.distance_to(player.position)
 		else:
 			player.velocity.x = -1 * (70000 / position.distance_to(player.position))
-	else:
-		player.velocity.x = lerp(player.velocity.x, 0.0, friction)
-
-func start_game():
-	game_started = true
+			
+func _input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				is_dragging = true
+				mouse_offset = global_position - get_global_mouse_position()
+			else:
+				is_dragging = false
