@@ -1,14 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgmr22rr2e0s7"]
+[gd_scene load_steps=5 format=3 uid="uid://cgmr22rr2e0s7"]
 
 [ext_resource type="Script" path="res://scripts/game_logic.gd" id="1_x0o2t"]
 [ext_resource type="Texture2D" uid="uid://vfki023yaxbl" path="res://sprites/StartButton.png" id="2_s0di0"]
 [ext_resource type="PackedScene" uid="uid://fpptvpvtjw4w" path="res://scenes/player.tscn" id="3_js3e4"]
-[ext_resource type="PackedScene" uid="uid://cc7y3alsmwqp1" path="res://scenes/blue_totem.tscn" id="3_tuglf"]
-[ext_resource type="PackedScene" uid="uid://b0wc1dhfdfmj5" path="res://scenes/red_totem.tscn" id="5_48p20"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lguc2"]
 
 [node name="Level1" type="Node2D"]
+position = Vector2(576, 324)
 script = ExtResource("1_x0o2t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -51,15 +50,6 @@ position = Vector2(71, 115)
 position = Vector2(0, 169)
 shape = SubResource("WorldBoundaryShape2D_lguc2")
 
-[node name="BlueTotem" parent="." instance=ExtResource("3_tuglf")]
-position = Vector2(-178, 29)
-
-[node name="RedTotem" parent="." instance=ExtResource("5_48p20")]
-position = Vector2(250, 120)
-
-[node name="BlueTotem2" parent="." instance=ExtResource("3_tuglf")]
-position = Vector2(-52, -213)
-
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Control/RedButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Control/BlueButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/RedButton" to="." method="_on_red_button_pressed"]
+[connection signal="pressed" from="Control/BlueButton" to="." method="_on_blue_button_pressed"]

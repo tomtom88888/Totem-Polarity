@@ -1,6 +1,5 @@
 extends Area2D
-
-@onready var player: CharacterBody2D = %"Player"
+var player
 var game_started = false
 var used = false
 @export var radius = 300
