@@ -9,3 +9,7 @@ func _ready():
 
 func on_start_button_pressed() -> void:
 	get_tree().change_scene_to_packed(start_level)
+
+
+func _on_main_menu_music_finished() -> void:
+	$menu_music.play()
