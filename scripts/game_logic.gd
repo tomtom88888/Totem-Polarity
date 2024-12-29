@@ -30,7 +30,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	blue_totems_left.text = str(blue_totem_amount)
-	red_totems_left.text = str(red_totem_amount)
+	red_totems_left.text = str(red_totem_amount) 
 	
 	if blue_totem_amount == 0:
 		blue_button.modulate = Color("gray", 0.5)

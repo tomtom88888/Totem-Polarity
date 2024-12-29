@@ -52,6 +52,7 @@ layout_mode = 2
 icon = ExtResource("4_dmlfx")
 
 [node name="BlueTotemsLeft" type="Label" parent="Control/HBoxContainer/BlueButton"]
+layout_mode = 0
 offset_left = 24.0
 offset_top = -24.0
 offset_right = 97.715
