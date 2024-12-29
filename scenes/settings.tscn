@@ -1,0 +1,181 @@
+[gd_scene load_steps=13 format=3 uid="uid://begpq4arq0tbf"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_1s0ac"]
+[ext_resource type="AudioStream" uid="uid://2t2w860tijis" path="res://sounds/MenuMusic3.wav" id="2_6wuwu"]
+[ext_resource type="Texture2D" uid="uid://bykm6pc8o6m78" path="res://sprites/Main_Menu_Background.png" id="3_ut8gw"]
+[ext_resource type="Texture2D" uid="uid://d08s81f1kyuu3" path="res://sprites/TotemPolarityLogo.png" id="4_rb8rj"]
+[ext_resource type="Texture2D" uid="uid://6ebdv20vm4db" path="res://sprites/RedTotem.png" id="6_guuam"]
+[ext_resource type="Texture2D" uid="uid://dt2mxfr52fcgt" path="res://sprites/BlueTotem.png" id="7_ha1mv"]
+
+[sub_resource type="Animation" id="Animation_hwslk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(117, 371)]
+}
+
+[sub_resource type="Animation" id="Animation_0lhrd"]
+resource_name = "up_down"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(117, 371), Vector2(117, 434)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_622ph"]
+_data = {
+"RESET": SubResource("Animation_hwslk"),
+"up_down": SubResource("Animation_0lhrd")
+}
+
+[sub_resource type="Animation" id="Animation_5pk74"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1036, 371)]
+}
+
+[sub_resource type="Animation" id="Animation_fik6w"]
+resource_name = "up_down"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1036, 371), Vector2(1036, 434)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7srqd"]
+_data = {
+"RESET": SubResource("Animation_5pk74"),
+"up_down": SubResource("Animation_fik6w")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_1s0ac")
+
+[node name="menu_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6wuwu")
+volume_db = -4.685
+autoplay = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -628.0
+offset_top = -370.0
+offset_right = 846.0
+offset_bottom = 538.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ut8gw")
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 144.0
+offset_right = 3024.0
+offset_bottom = 576.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_rb8rj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 130
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 130
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="RedTotem" type="Sprite2D" parent="."]
+position = Vector2(117, 371)
+texture = ExtResource("6_guuam")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RedTotem"]
+libraries = {
+"": SubResource("AnimationLibrary_622ph")
+}
+autoplay = "up_down"
+
+[node name="BlueTotem" type="Sprite2D" parent="."]
+position = Vector2(1036, 371)
+texture = ExtResource("7_ha1mv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlueTotem"]
+libraries = {
+"": SubResource("AnimationLibrary_7srqd")
+}
+autoplay = "up_down"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.5
+offset_top = -130.5
+offset_right = 193.5
+offset_bottom = 44.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+text = "Settings"
+
+[connection signal="finished" from="menu_music" to="." method="_on_main_menu_music_finished"]
