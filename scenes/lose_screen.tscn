@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_wyg5x"]
 [ext_resource type="Texture2D" uid="uid://d08s81f1kyuu3" path="res://sprites/TotemPolarityLogo.png" id="2_7eyk7"]
 [ext_resource type="Texture2D" uid="uid://bykm6pc8o6m78" path="res://sprites/Main_Menu_Background.png" id="3_u70dk"]
-[ext_resource type="Texture2D" uid="uid://c2e4xos7ofkqg" path="res://sprites/MenuStartButton.png" id="4_41vlf"]
+[ext_resource type="Texture2D" uid="uid://cbogv3o8oi4d2" path="res://sprites/MenuReStartButton.png" id="4_p3qjs"]
 [ext_resource type="Texture2D" uid="uid://6ebdv20vm4db" path="res://sprites/RedTotem.png" id="5_x3ouf"]
 [ext_resource type="Texture2D" uid="uid://dt2mxfr52fcgt" path="res://sprites/BlueTotem.png" id="6_pyke2"]
 
@@ -133,7 +133,7 @@ alignment = 1
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-icon = ExtResource("4_41vlf")
+icon = ExtResource("4_p3qjs")
 flat = true
 
 [node name="RedTotem" type="Sprite2D" parent="."]
