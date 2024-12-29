@@ -96,6 +96,7 @@ func _on_start_button_pressed() -> void:
 	get_tree().call_group("totems", "clear_radius_circle")
 	delete_grid()
 	player.is_gravity = true
+	player.game_started = true
 	start_game = true
 
 

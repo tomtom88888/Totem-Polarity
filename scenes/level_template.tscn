@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgmr22rr2e0s7"]
+[gd_scene load_steps=12 format=4 uid="uid://cgmr22rr2e0s7"]
 
 [ext_resource type="Script" path="res://scripts/game_logic.gd" id="1_x0o2t"]
 [ext_resource type="Texture2D" uid="uid://vfki023yaxbl" path="res://sprites/StartButton.png" id="2_s0di0"]
@@ -7,7 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://fpptvpvtjw4w" path="res://scenes/player.tscn" id="3_js3e4"]
 [ext_resource type="FontFile" uid="uid://bmmn1uwaaao6p" path="res://fonts/Outfit-ExtraBold.ttf" id="3_xorgw"]
 [ext_resource type="Texture2D" uid="uid://d0w1d27cdsvc5" path="res://sprites/BlueTotemButton.png" id="4_dmlfx"]
-[ext_resource type="Texture2D" uid="uid://cqtqocxsarhku" path="res://sprites/trash.png" id="5_g8j4e"]
+[ext_resource type="Texture2D" uid="uid://dgt0sso7bf1fc" path="res://sprites/Delete.png" id="6_1bdul"]
+[ext_resource type="Texture2D" uid="uid://iqtt7jx7gg7m" path="res://sprites/Brick.png" id="9_a632u"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6wptv"]
+texture = ExtResource("9_a632u")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_21fpx"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_6wptv")
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource("1_x0o2t")
@@ -36,6 +51,7 @@ theme_override_constants/separation = 10
 
 [node name="RedButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 icon = ExtResource("3_1c54r")
 
 [node name="RedTotemsLeft" type="Label" parent="Control/HBoxContainer/RedButton"]
@@ -53,6 +69,7 @@ vertical_alignment = 1
 
 [node name="BlueButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 icon = ExtResource("4_dmlfx")
 
 [node name="BlueTotemsLeft" type="Label" parent="Control/HBoxContainer/BlueButton"]
@@ -70,7 +87,7 @@ vertical_alignment = 1
 
 [node name="DeleteButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("5_g8j4e")
+icon = ExtResource("6_1bdul")
 
 [node name="StartButton" type="Button" parent="Control"]
 layout_mode = 0
@@ -83,8 +100,12 @@ icon = ExtResource("2_s0di0")
 
 [node name="Player" parent="." instance=ExtResource("3_js3e4")]
 unique_name_in_owner = true
-position = Vector2(572, 428)
-scale = Vector2(0.6, 0.6)
+position = Vector2(566, 416)
+scale = Vector2(0.5, 0.5)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAACAAgAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAALAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAANAAgAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAARAAgAAAAAAAAAAAARAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAADAAkAAAAAAAAAAAACAAkAAAAAAAAAAAABAAkAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAABAAoAAAAAAAAAAAACAAoAAAAAAAAAAAADAAoAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAIAAoAAAAAAAAAAAAJAAoAAAAAAAAAAAAKAAoAAAAAAAAAAAALAAoAAAAAAAAAAAAMAAoAAAAAAAAAAAANAAoAAAAAAAAAAAAOAAoAAAAAAAAAAAAPAAoAAAAAAAAAAAAQAAoAAAAAAAAAAAARAAoAAAAAAAAAAAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAKAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAALAAcAAAAAAAAAAAAMAAcAAAAAAAAAAAANAAcAAAAAAAAAAAAOAAcAAAAAAAAAAAAPAAcAAAAAAAAAAAAQAAcAAAAAAAAAAAARAAcAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_21fpx")
 
 [node name="RedTotemTimer" type="Timer" parent="."]
 wait_time = 0.5
