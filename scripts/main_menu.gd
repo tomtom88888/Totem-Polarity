@@ -4,6 +4,7 @@ extends Control
 @onready var start_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/StartButton as Button
 @onready var settings_button: Button = $SettingsButton as Button
 @onready var start_level = preload("res://scenes/level_menu.tscn") as PackedScene
+@onready var settings = preload("res://scenes/settings.tscn") as PackedScene
 
 func _ready():
 	start_button.button_down.connect(on_start_button_pressed)
