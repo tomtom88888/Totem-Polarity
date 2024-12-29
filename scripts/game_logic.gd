@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var camera_zoom = 1
+@export var camera_zoom = 1.0
 @onready var delete_button: Button = $Control/HBoxContainer/DeleteButton
 @onready var blue_button: Button = $Control/HBoxContainer/BlueButton
 @onready var red_button: Button = $Control/HBoxContainer/RedButton
@@ -41,6 +41,8 @@ func _draw() -> void:
 			draw_line(Vector2(0, col), Vector2(1500, col), Color(0,0,0,0.2), 1.0)
 
 func _ready() -> void:
+	$SceneTransitionAnimation/ColorRect.color.a = 255
+	$SceneTransitionAnimation/AnimationPlayer.play("fade_out")
 	$Camera2D.zoom.x = camera_zoom
 	$Camera2D.zoom.y = camera_zoom
 	$Control.scale.x = 1/camera_zoom
@@ -145,3 +147,11 @@ func _on_blue_totem_timer_timeout() -> void:
 
 func _on_win_entered(body: Node2D) -> void:
 	get_tree().change_scene_to_packed(win_scene)
+
+
+func _on_delete_area_area_entered(area: Area2D) -> void:
+	if area.is_blue:
+		blue_totem_amount += 1
+	else:
+		red_totem_amount += 1
+	area.queue_free()

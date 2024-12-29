@@ -1,86 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://begpq4arq0tbf"]
+[gd_scene load_steps=6 format=3 uid="uid://begpq4arq0tbf"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_1s0ac"]
+[ext_resource type="Script" path="res://scripts/settings.gd" id="1_uxir5"]
+[ext_resource type="FontFile" uid="uid://bmmn1uwaaao6p" path="res://fonts/Outfit-ExtraBold.ttf" id="3_kucjf"]
 [ext_resource type="Texture2D" uid="uid://bykm6pc8o6m78" path="res://sprites/Main_Menu_Background.png" id="3_ut8gw"]
-[ext_resource type="Texture2D" uid="uid://d08s81f1kyuu3" path="res://sprites/TotemPolarityLogo.png" id="4_rb8rj"]
-[ext_resource type="Texture2D" uid="uid://6ebdv20vm4db" path="res://sprites/RedTotem.png" id="6_guuam"]
-[ext_resource type="Texture2D" uid="uid://dt2mxfr52fcgt" path="res://sprites/BlueTotem.png" id="7_ha1mv"]
+[ext_resource type="Texture2D" uid="uid://d0326iy5ei783" path="res://sprites/Ellipse 26.png" id="4_k0188"]
+[ext_resource type="Texture2D" uid="uid://bih7bgpeyns2w" path="res://sprites/Ellipse 27.png" id="5_vkl03"]
 
-[sub_resource type="Animation" id="Animation_hwslk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(117, 371)]
-}
-
-[sub_resource type="Animation" id="Animation_0lhrd"]
-resource_name = "up_down"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(117, 371), Vector2(117, 434)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_622ph"]
-_data = {
-"RESET": SubResource("Animation_hwslk"),
-"up_down": SubResource("Animation_0lhrd")
-}
-
-[sub_resource type="Animation" id="Animation_5pk74"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1036, 371)]
-}
-
-[sub_resource type="Animation" id="Animation_fik6w"]
-resource_name = "up_down"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1036, 371), Vector2(1036, 434)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7srqd"]
-_data = {
-"RESET": SubResource("Animation_5pk74"),
-"up_down": SubResource("Animation_fik6w")
-}
-
-[node name="MainMenu" type="Control"]
+[node name="Settings" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_1s0ac")
+script = ExtResource("1_uxir5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -106,68 +32,76 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_ut8gw")
 
-[node name="Title" type="TextureRect" parent="."]
-layout_mode = 1
-offset_left = 144.0
-offset_right = 3024.0
-offset_bottom = 576.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("4_rb8rj")
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 130
-theme_override_constants/margin_top = 120
-theme_override_constants/margin_right = 130
-theme_override_constants/margin_bottom = 20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 18
-alignment = 1
-
-[node name="RedTotem" type="Sprite2D" parent="."]
-position = Vector2(117, 371)
-texture = ExtResource("6_guuam")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="RedTotem"]
-libraries = {
-"": SubResource("AnimationLibrary_622ph")
-}
-autoplay = "up_down"
-
-[node name="BlueTotem" type="Sprite2D" parent="."]
-position = Vector2(1036, 371)
-texture = ExtResource("7_ha1mv")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="BlueTotem"]
-libraries = {
-"": SubResource("AnimationLibrary_7srqd")
-}
-autoplay = "up_down"
-
-[node name="Label" type="Label" parent="."]
+[node name="TitleSettings" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -423.5
-offset_top = -182.5
-offset_right = 71.5
-offset_bottom = -7.5
+offset_left = -288.0
+offset_top = -311.0
+offset_right = 207.0
+offset_bottom = -136.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_kucjf")
 theme_override_font_sizes/font_size = 128
 text = "Settings"
+
+[node name="SoundEffects" type="Label" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 263.0
+offset_right = 537.0
+offset_bottom = 435.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_kucjf")
+theme_override_font_sizes/font_size = 61
+text = "Sound Effects"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SfxSlider" type="HSlider" parent="SoundEffects"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 476.0
+offset_top = -11.0
+offset_right = 633.0
+offset_bottom = 9.0
+grow_vertical = 2
+scale = Vector2(1.865, 1.865)
+theme_override_icons/grabber = ExtResource("4_k0188")
+theme_override_icons/grabber_highlight = ExtResource("4_k0188")
+theme_override_icons/grabber_disabled = ExtResource("4_k0188")
+value = 100.0
+
+[node name="MusicText" type="Label" parent="."]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 172.0
+offset_right = 342.0
+offset_bottom = 344.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_kucjf")
+theme_override_font_sizes/font_size = 61
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="MusicText"]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 76.0
+offset_right = 439.0
+offset_bottom = 96.0
+scale = Vector2(1.865, 1.865)
+theme_override_icons/grabber = ExtResource("5_vkl03")
+theme_override_icons/grabber_highlight = ExtResource("5_vkl03")
+theme_override_icons/grabber_disabled = ExtResource("5_vkl03")
+value = 100.0
+
+[connection signal="value_changed" from="MusicText/MusicSlider" to="." method="_on_music_slider_value_changed"]

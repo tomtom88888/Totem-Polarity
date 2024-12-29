@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cgmr22rr2e0s7"]
+[gd_scene load_steps=14 format=4 uid="uid://cgmr22rr2e0s7"]
 
 [ext_resource type="Script" path="res://scripts/game_logic.gd" id="1_x0o2t"]
 [ext_resource type="Texture2D" uid="uid://vfki023yaxbl" path="res://sprites/StartButton.png" id="2_s0di0"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://d0w1d27cdsvc5" path="res://sprites/BlueTotemButton.png" id="4_dmlfx"]
 [ext_resource type="Texture2D" uid="uid://dgt0sso7bf1fc" path="res://sprites/Delete.png" id="6_1bdul"]
 [ext_resource type="Texture2D" uid="uid://iqtt7jx7gg7m" path="res://sprites/Brick.png" id="9_a632u"]
+[ext_resource type="PackedScene" uid="uid://bx72kjdw81e3p" path="res://scenes/scene_transition_animation.tscn" id="10_vchee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4ghv"]
+size = Vector2(65, 78)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6wptv"]
 texture = ExtResource("9_a632u")
@@ -90,6 +94,12 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 icon = ExtResource("6_1bdul")
 
+[node name="DeleteArea" type="Area2D" parent="Control/HBoxContainer/DeleteButton"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/HBoxContainer/DeleteButton/DeleteArea"]
+position = Vector2(33.5, 39)
+shape = SubResource("RectangleShape2D_l4ghv")
+
 [node name="StartButton" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 554.0
@@ -116,9 +126,12 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
+[node name="SceneTransitionAnimation" parent="." instance=ExtResource("10_vchee")]
+
 [connection signal="body_entered" from="WinFlag" to="." method="_on_win_entered"]
 [connection signal="pressed" from="Control/HBoxContainer/RedButton" to="." method="_on_red_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/BlueButton" to="." method="_on_blue_button_pressed"]
+[connection signal="area_entered" from="Control/HBoxContainer/DeleteButton/DeleteArea" to="." method="_on_delete_area_area_entered"]
 [connection signal="pressed" from="Control/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="RedTotemTimer" to="." method="_on_red_totem_timer_timeout"]
 [connection signal="timeout" from="BlueTotemTimer" to="." method="_on_blue_totem_timer_timeout"]

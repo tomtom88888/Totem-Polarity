@@ -3,6 +3,8 @@ extends Area2D
 var player
 var game_started = false
 @export var radius = 200
+@onready var is_blue = true
+
 var is_dragging = false
 var mouse_offset = Vector2.ZERO
 var move = false

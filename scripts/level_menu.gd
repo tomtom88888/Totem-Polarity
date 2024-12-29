@@ -1,11 +1,10 @@
 extends Control
 
-@onready var template_level = preload("res://scenes/level_template.tscn") as PackedScene
+@onready var scene_transition_animation: AnimationPlayer = $SceneTransitionAnimation/AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -13,4 +12,15 @@ func _process(delta: float) -> void:
 
 
 func _on_tutorial_button_pressed() -> void:
-	get_tree().change_scene_to_packed(template_level)
+	print("fuck")
+	scene_transition_animation.play("fade_in")
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://scenes/level_template.tscn")
+
+
+
+#func _on_tutorial_button_down() -> void:
+	#print("fuck")
+	#scene_transition_animation.play("fade_in")
+	#await get_tree().create_timer(0.5).timeout
+	#get_tree().change_scene_to_file("res://scenes/level_template.tscn")
