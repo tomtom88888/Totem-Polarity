@@ -145,6 +145,7 @@ alignment = 1
 [node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 icon = ExtResource("3_ha0vr")
 flat = true
