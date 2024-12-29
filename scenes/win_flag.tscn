@@ -1,16 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://eskjbpwx220j"]
 
-[ext_resource type="Texture2D" uid="uid://bvs03ijhhwh71" path="res://sprites/ExitSign.png" id="1_te8xe"]
+[ext_resource type="Texture2D" uid="uid://bqro3x47vxtr1" path="res://sprites/Exit.png" id="1_ptoun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q80ba"]
-size = Vector2(45, 21)
+size = Vector2(54, 34)
 
 [node name="WinFlag" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_q80ba")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_te8xe")
+texture = ExtResource("1_ptoun")

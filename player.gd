@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 
 
 func _on_lose_timer_timeout() -> void:
-	if prev_pos == position:
+	if position.distance_to(prev_pos) < 20:
 		get_tree().reload_current_scene()
 	else:
 		prev_pos = position

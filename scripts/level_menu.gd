@@ -24,3 +24,7 @@ func _on_tutorial_button_pressed() -> void:
 	#scene_transition_animation.play("fade_in")
 	#await get_tree().create_timer(0.5).timeout
 	#get_tree().change_scene_to_file("res://scenes/level_template.tscn")
+
+
+func _on_back_button_pressed() -> void:
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

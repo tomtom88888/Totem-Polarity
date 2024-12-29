@@ -155,3 +155,7 @@ func _on_delete_area_area_entered(area: Area2D) -> void:
 	else:
 		red_totem_amount += 1
 	area.queue_free()
+
+
+func _on_back_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/level_menu.tscn")
