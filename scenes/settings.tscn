@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://begpq4arq0tbf"]
+[gd_scene load_steps=12 format=3 uid="uid://begpq4arq0tbf"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_1s0ac"]
-[ext_resource type="AudioStream" uid="uid://2t2w860tijis" path="res://sounds/MenuMusic3.wav" id="2_6wuwu"]
 [ext_resource type="Texture2D" uid="uid://bykm6pc8o6m78" path="res://sprites/Main_Menu_Background.png" id="3_ut8gw"]
 [ext_resource type="Texture2D" uid="uid://d08s81f1kyuu3" path="res://sprites/TotemPolarityLogo.png" id="4_rb8rj"]
 [ext_resource type="Texture2D" uid="uid://6ebdv20vm4db" path="res://sprites/RedTotem.png" id="6_guuam"]
@@ -92,11 +91,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_1s0ac")
 
-[node name="menu_music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_6wuwu")
-volume_db = -4.685
-autoplay = true
-
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -177,5 +171,3 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 128
 text = "Settings"
-
-[connection signal="finished" from="menu_music" to="." method="_on_main_menu_music_finished"]

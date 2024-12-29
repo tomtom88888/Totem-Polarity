@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://bldt1ypnboksq"]
+[gd_scene load_steps=14 format=3 uid="uid://bldt1ypnboksq"]
 
 [ext_resource type="Texture2D" uid="uid://bykm6pc8o6m78" path="res://sprites/Main_Menu_Background.png" id="1_koa8c"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_w6d2p"]
-[ext_resource type="AudioStream" uid="uid://2t2w860tijis" path="res://sounds/MenuMusic3.wav" id="2_414uy"]
 [ext_resource type="Texture2D" uid="uid://d08s81f1kyuu3" path="res://sprites/TotemPolarityLogo.png" id="2_bwwv6"]
 [ext_resource type="Texture2D" uid="uid://c2e4xos7ofkqg" path="res://sprites/MenuStartButton.png" id="3_ha0vr"]
 [ext_resource type="Texture2D" uid="uid://6ebdv20vm4db" path="res://sprites/RedTotem.png" id="4_cbu0d"]
@@ -94,11 +93,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_w6d2p")
 
-[node name="menu_music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_414uy")
-volume_db = -4.685
-autoplay = true
-
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -187,5 +181,3 @@ scale = Vector2(0.2, 0.2)
 mouse_default_cursor_shape = 2
 icon = ExtResource("8_p6i4g")
 flat = true
-
-[connection signal="finished" from="menu_music" to="." method="_on_main_menu_music_finished"]

@@ -42,7 +42,7 @@ func _ready() -> void:
 	pass
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	blue_totems_left.text = str(blue_totem_amount)
 	red_totems_left.text = str(red_totem_amount) 
 	

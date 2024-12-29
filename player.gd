@@ -14,8 +14,6 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		if is_gravity:
 			velocity += get_gravity() * delta
-		else:
-			velocity.y = 0
 	velocity.x = lerp(velocity.x, 0.0, friction)
 	move_and_slide()
 
