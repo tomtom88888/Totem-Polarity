@@ -5,6 +5,7 @@ extends Node2D
 @onready var red_button: Button = $Control/HBoxContainer/RedButton
 @onready var move_button: Button = $Control/HBoxContainer/MoveButton
 @onready var player: CharacterBody2D = %Player
+
 var is_red = false
 var is_blue = false
 var move = false
@@ -31,20 +32,35 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	var mouse_pos = get_global_mouse_position()
-	if is_blue and event is InputEventMouseButton and mouse_pos.y > 130:
+	if event is not InputEventMouseButton:
+		return
+	if event.button_index != MOUSE_BUTTON_RIGHT and event.button_index != MOUSE_BUTTON_LEFT:
+		return
+	if event.button_index == MOUSE_BUTTON_RIGHT:
+		print("fuck")
+		get_tree().call_group("totems", "change_move_true")
+		return
+	if event.button_index == MOUSE_BUTTON_LEFT:
+		get_tree().call_group("totems", "change_move_false")
+
+
+	if is_blue and mouse_pos.y > 130 and event.button_index == MOUSE_BUTTON_LEFT:
 		var blue_totem = BLUE_TOTEM.instantiate()
 		blue_totem.player = player
-		blue_totem.global_position = mouse_pos
+		blue_totem.global_position = snapped(mouse_pos, Vector2(64, 64))
 		add_child(blue_totem)
-	elif is_red and event is InputEventMouseButton and mouse_pos.y > 130:
+		await get_tree().create_timer(0.5).timeout 
+	elif is_red and mouse_pos.y > 130 and event.button_index == MOUSE_BUTTON_LEFT:
 		var red_totem = RED_TOTEM.instantiate()
 		red_totem.player = player
-		red_totem.global_position = mouse_pos
+		red_totem.global_position = snapped(mouse_pos, Vector2(64, 64))
 		add_child(red_totem)
+		await get_tree().create_timer(0.5).timeout 
 
 
 func _on_start_button_pressed() -> void:
 	get_tree().call_group("totems", "start_game")
+	player.is_gravity = true
 	start_game = true
 
 

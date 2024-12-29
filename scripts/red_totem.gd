@@ -28,7 +28,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if is_dragging and move:
-		global_position = get_global_mouse_position() + mouse_offset
+		global_position = snapped(get_global_mouse_position() + mouse_offset, Vector2(64, 64))
 	if game_started and position.distance_to(player.position) < radius:
 		if position.x < player.position.x:
 			player.velocity.x = 70000 / position.distance_to(player.position)
@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 			
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and !delete and move:
-		if event.button_index == MOUSE_BUTTON_LEFT:
+		if event.button_index == MOUSE_BUTTON_RIGHT:
 			if event.pressed:
 				is_dragging = true
 				mouse_offset = global_position - get_global_mouse_position()

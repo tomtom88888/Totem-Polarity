@@ -57,6 +57,7 @@ icon = ExtResource("2_s0di0")
 [node name="Player" parent="." instance=ExtResource("3_js3e4")]
 unique_name_in_owner = true
 position = Vector2(572, 428)
+scale = Vector2(0.6, 0.6)
 
 [connection signal="pressed" from="Control/HBoxContainer/RedButton" to="." method="_on_red_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/BlueButton" to="." method="_on_blue_button_pressed"]
