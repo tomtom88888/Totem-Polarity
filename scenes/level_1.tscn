@@ -1,55 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgmr22rr2e0s7"]
+[gd_scene load_steps=8 format=3 uid="uid://cgmr22rr2e0s7"]
 
 [ext_resource type="Script" path="res://scripts/game_logic.gd" id="1_x0o2t"]
 [ext_resource type="Texture2D" uid="uid://vfki023yaxbl" path="res://sprites/StartButton.png" id="2_s0di0"]
 [ext_resource type="Texture2D" uid="uid://klw01bp52uw7" path="res://sprites/RedTotemButton.png" id="3_1c54r"]
 [ext_resource type="PackedScene" uid="uid://fpptvpvtjw4w" path="res://scenes/player.tscn" id="3_js3e4"]
 [ext_resource type="Texture2D" uid="uid://d0w1d27cdsvc5" path="res://sprites/BlueTotemButton.png" id="4_dmlfx"]
-[ext_resource type="Texture2D" uid="uid://bldfdab1yqjo5" path="res://sprites/Tileset.png" id="4_eqljd"]
 [ext_resource type="Texture2D" uid="uid://blfhvgi0a6uok" path="res://sprites/move.png" id="4_kg6y0"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qjc5l"]
-texture = ExtResource("4_eqljd")
-texture_region_size = Vector2i(70, 70)
-7:3/0 = 0
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -35, 35, -35, 35, 35, -35, 35)
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -35, 35, -35, 35, 35, -35, 35)
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_sa718"]
-tile_size = Vector2i(70, 70)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_qjc5l")
+[ext_resource type="Texture2D" uid="uid://cqtqocxsarhku" path="res://sprites/trash.png" id="5_g8j4e"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_x0o2t")
@@ -65,7 +22,31 @@ offset_top = 324.0
 offset_right = 616.0
 offset_bottom = 364.0
 
-[node name="Button" type="Button" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = -546.0
+offset_top = -294.0
+offset_right = -229.695
+offset_bottom = -216.0
+theme_override_constants/separation = 10
+
+[node name="RedButton" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_1c54r")
+
+[node name="BlueButton" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("4_dmlfx")
+
+[node name="MoveButton" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("4_kg6y0")
+
+[node name="DeleteButton" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("5_g8j4e")
+
+[node name="StartButton" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 492.0
 offset_top = -303.0
@@ -73,40 +54,12 @@ offset_right = 548.0
 offset_bottom = -241.0
 icon = ExtResource("2_s0di0")
 
-[node name="RedButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = -469.0
-offset_top = -308.0
-offset_right = -399.0
-offset_bottom = -231.0
-icon = ExtResource("3_1c54r")
-
-[node name="MoveButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = -384.0
-offset_top = -308.0
-offset_right = -307.0
-offset_bottom = -231.0
-icon = ExtResource("4_kg6y0")
-
-[node name="BlueButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = -554.0
-offset_top = -303.0
-offset_right = -498.0
-offset_bottom = -241.0
-icon = ExtResource("4_dmlfx")
-
 [node name="Player" parent="." instance=ExtResource("3_js3e4")]
 unique_name_in_owner = true
 position = Vector2(572, 428)
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_sa718")
-format = 2
-layer_0/tile_data = PackedInt32Array(458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 524304, 65536, 0, 524303, 65536, 0, 524302, 65536, 0, 524301, 65536, 0, 524300, 65536, 0, 524299, 65536, 0, 524298, 65536, 0, 524297, 65536, 0, 524296, 65536, 0, 524295, 65536, 0, 524294, 65536, 0, 524293, 65536, 0, 524292, 65536, 0, 524291, 65536, 0, 524290, 65536, 0, 524289, 65536, 0, 524288, 65536, 0, 589824, 65536, 0, 589825, 65536, 0, 589826, 65536, 0, 589827, 65536, 0, 589828, 65536, 0, 589829, 65536, 0, 589830, 65536, 0, 589831, 65536, 0, 589832, 65536, 0, 589833, 65536, 0, 589834, 65536, 0, 589835, 65536, 0, 589836, 65536, 0, 589837, 65536, 0, 589838, 65536, 0, 589839, 65536, 0, 589840, 65536, 0)
-
-[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Control/RedButton" to="." method="_on_red_button_pressed"]
-[connection signal="pressed" from="Control/MoveButton" to="." method="_on_move_button_pressed"]
-[connection signal="pressed" from="Control/BlueButton" to="." method="_on_blue_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/RedButton" to="." method="_on_red_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/BlueButton" to="." method="_on_blue_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/MoveButton" to="." method="_on_move_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/DeleteButton" to="." method="_on_delete_button_pressed"]
+[connection signal="pressed" from="Control/StartButton" to="." method="_on_button_pressed"]

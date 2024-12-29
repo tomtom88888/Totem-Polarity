@@ -6,6 +6,7 @@ var used = false
 var is_dragging = false
 var mouse_offset = Vector2.ZERO
 var move = false
+var delete
 # Called when the node enters the scene tree for the first time.
 
 func change_move_true():
@@ -13,6 +14,12 @@ func change_move_true():
 	
 func change_move_false():
 	move = false
+
+func change_delete_true():
+	delete = true
+	
+func change_delete_false():
+	delete = false
 
 func _ready() -> void:
 	pass # Replace with function body.
@@ -40,3 +47,7 @@ func _input_event(viewport, event, shape_idx):
 				mouse_offset = global_position - get_global_mouse_position()
 			else:
 				is_dragging = false
+	if event is InputEventMouseButton and delete and !move:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				queue_free()

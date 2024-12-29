@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bldt1ypnboksq"]
 
 [ext_resource type="Texture2D" uid="uid://c1veg630ykpbw" path="res://sprites/Main_Menu_Background.png" id="1_koa8c"]
-[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_w6d2p"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_w6d2p"]
 
-[node name="Main_Menu" type="Control"]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

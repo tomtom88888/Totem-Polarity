@@ -6,12 +6,19 @@ var game_started = false
 var is_dragging = false
 var mouse_offset = Vector2.ZERO
 var move = false
+var delete = false
 
 func change_move_true():
 	move = true
 	
 func change_move_false():
 	move = false
+
+func change_delete_true():
+	delete = true
+	
+func change_delete_false():
+	delete = false
 
 func start_game():
 	game_started = true
@@ -29,10 +36,14 @@ func _process(delta: float) -> void:
 			player.velocity.x = -1 * (70000 / position.distance_to(player.position))
 			
 func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and !delete and move:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
 				is_dragging = true
 				mouse_offset = global_position - get_global_mouse_position()
 			else:
 				is_dragging = false
+	if event is InputEventMouseButton and delete and !move:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				queue_free()
