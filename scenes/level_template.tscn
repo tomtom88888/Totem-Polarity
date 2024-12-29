@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgmr22rr2e0s7"]
+[gd_scene load_steps=9 format=3 uid="uid://cgmr22rr2e0s7"]
 
 [ext_resource type="Script" path="res://scripts/game_logic.gd" id="1_x0o2t"]
 [ext_resource type="Texture2D" uid="uid://vfki023yaxbl" path="res://sprites/StartButton.png" id="2_s0di0"]
+[ext_resource type="PackedScene" uid="uid://eskjbpwx220j" path="res://scenes/win_flag.tscn" id="2_vdmat"]
 [ext_resource type="Texture2D" uid="uid://klw01bp52uw7" path="res://sprites/RedTotemButton.png" id="3_1c54r"]
 [ext_resource type="PackedScene" uid="uid://fpptvpvtjw4w" path="res://scenes/player.tscn" id="3_js3e4"]
 [ext_resource type="FontFile" uid="uid://bmmn1uwaaao6p" path="res://fonts/Outfit-ExtraBold.ttf" id="3_xorgw"]
@@ -10,6 +11,9 @@
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource("1_x0o2t")
+
+[node name="WinFlag" parent="." instance=ExtResource("2_vdmat")]
+position = Vector2(465, 284)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
@@ -90,6 +94,7 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
+[connection signal="body_entered" from="WinFlag" to="." method="_on_win_entered"]
 [connection signal="pressed" from="Control/HBoxContainer/RedButton" to="." method="_on_red_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/BlueButton" to="." method="_on_blue_button_pressed"]
 [connection signal="pressed" from="Control/StartButton" to="." method="_on_start_button_pressed"]

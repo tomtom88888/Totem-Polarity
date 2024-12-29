@@ -13,7 +13,10 @@ extends Node2D
 
 @onready var red_totem_timer: Timer = $RedTotemTimer
 @onready var blue_totem_timer: Timer = $BlueTotemTimer
+@onready var win_scene = preload("res://scenes/win.tscn") as PackedScene
 
+
+var draw_grid = true
 var is_red = false
 var is_blue = false
 
@@ -23,6 +26,17 @@ const BLUE_TOTEM = preload("res://scenes/blue_totem.tscn")
 var start_game
 var can_place_blue = true
 var can_place_red = true
+
+func delete_grid():
+	draw_grid = false
+	queue_redraw()
+
+func _draw() -> void:
+	if draw_grid:
+		for row in range(32, 1500, 64):
+			draw_line(Vector2(row, 0), Vector2(row, 1000), Color(0,0,0,0.2), 1.0)
+		for col in range(32, 1500, 64):
+			draw_line(Vector2(0, col), Vector2(1500, col), Color(0,0,0,0.2), 1.0)
 
 func _ready() -> void:
 	pass
@@ -79,6 +93,8 @@ func _input(event: InputEvent) -> void:
 
 func _on_start_button_pressed() -> void:
 	get_tree().call_group("totems", "start_game")
+	get_tree().call_group("totems", "clear_radius_circle")
+	delete_grid()
 	player.is_gravity = true
 	start_game = true
 
@@ -119,3 +135,7 @@ func _on_red_totem_timer_timeout() -> void:
 
 func _on_blue_totem_timer_timeout() -> void:
 	can_place_blue = true
+
+
+func _on_win_entered(body: Node2D) -> void:
+	get_tree().change_scene_to_packed(win_scene)

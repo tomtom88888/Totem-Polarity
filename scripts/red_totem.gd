@@ -8,6 +8,11 @@ var mouse_offset = Vector2.ZERO
 var move = false
 var delete
 # Called when the node enters the scene tree for the first time.
+var draw_circ = true
+
+func clear_radius_circle():
+	draw_circ = false
+	queue_redraw()
 
 func change_move_true():
 	move = true
@@ -22,7 +27,8 @@ func change_delete_false():
 	delete = false
 
 func _draw():
-	draw_circle(Vector2(0,0), radius, Color.ORANGE, false)
+	if draw_circ:
+		draw_circle(Vector2(0,0), radius, Color.ORANGE, false)
 
 
 func _ready() -> void:

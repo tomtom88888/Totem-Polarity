@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://eskjbpwx220j"]
+
+[ext_resource type="Texture2D" uid="uid://cbm2u5mg2wybx" path="res://sprites/WinFlag.png" id="1_g1hc4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q80ba"]
+size = Vector2(38, 48)
+
+[node name="WinFlag" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q80ba")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_g1hc4")

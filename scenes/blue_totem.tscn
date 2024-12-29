@@ -9,7 +9,7 @@ size = Vector2(71, 106)
 [node name="BlueTotem" type="Area2D" groups=["totems"]]
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_3nd78")
-radius = 500
+radius = 400
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.7, 0.7)

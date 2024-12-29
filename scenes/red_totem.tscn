@@ -9,7 +9,7 @@ size = Vector2(71, 106)
 [node name="RedTotem" type="Area2D" groups=["totems"]]
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_qutl7")
-radius = 500
+radius = 400
 metadata/_edit_horizontal_guides_ = [-94.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
