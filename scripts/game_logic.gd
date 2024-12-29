@@ -6,6 +6,9 @@ extends Node2D
 @onready var move_button: Button = $Control/HBoxContainer/MoveButton
 @onready var player: CharacterBody2D = %Player
 
+@export var red_totem_amount = 4
+@export var blue_totem_amount = 3
+
 var is_red = false
 var is_blue = false
 var move = false
@@ -20,6 +23,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if blue_totem_amount == -2:
+		blue_button.modulate = Color("gray", 0.5)
+	if red_totem_amount == -2:
+		red_button.modulate = Color("gray", 0.5)
 	if start_game:
 		is_blue = false
 		is_red = false
@@ -44,17 +51,19 @@ func _input(event: InputEvent) -> void:
 		get_tree().call_group("totems", "change_move_false")
 
 
-	if is_blue and mouse_pos.y > 130 and event.button_index == MOUSE_BUTTON_LEFT:
+	if is_blue and mouse_pos.y > 130 and event.button_index == MOUSE_BUTTON_LEFT and blue_totem_amount > -2:
 		var blue_totem = BLUE_TOTEM.instantiate()
 		blue_totem.player = player
 		blue_totem.global_position = snapped(mouse_pos, Vector2(64, 64))
 		add_child(blue_totem)
+		blue_totem_amount -= 1
 		await get_tree().create_timer(0.5).timeout 
-	elif is_red and mouse_pos.y > 130 and event.button_index == MOUSE_BUTTON_LEFT:
+	elif is_red and mouse_pos.y > 130 and event.button_index == MOUSE_BUTTON_LEFT and red_totem_amount > -2:
 		var red_totem = RED_TOTEM.instantiate()
 		red_totem.player = player
 		red_totem.global_position = snapped(mouse_pos, Vector2(64, 64))
 		add_child(red_totem)
+		red_totem_amount -= 1
 		await get_tree().create_timer(0.5).timeout 
 
 
@@ -65,6 +74,8 @@ func _on_start_button_pressed() -> void:
 
 
 func _on_blue_button_pressed() -> void:
+	if blue_totem_amount == -2:
+		return
 	if is_blue:
 		is_blue = false
 		is_red = false
@@ -81,6 +92,8 @@ func _on_blue_button_pressed() -> void:
 		get_tree().call_group("totems", "change_delete_false")
 
 func _on_red_button_pressed() -> void:
+	if red_totem_amount == -2:
+		return
 	if is_red:
 		is_blue = false
 		is_red = false
