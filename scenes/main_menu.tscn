@@ -184,6 +184,7 @@ offset_bottom = -103.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.2, 0.2)
+mouse_default_cursor_shape = 2
 icon = ExtResource("8_p6i4g")
 flat = true
 
