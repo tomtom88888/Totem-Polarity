@@ -32,6 +32,7 @@ theme_override_constants/separation = 10
 
 [node name="RedButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 icon = ExtResource("3_1c54r")
 
 [node name="RedTotemsLeft" type="Label" parent="Control/HBoxContainer/RedButton"]
@@ -49,6 +50,7 @@ vertical_alignment = 1
 
 [node name="BlueButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 icon = ExtResource("4_dmlfx")
 
 [node name="BlueTotemsLeft" type="Label" parent="Control/HBoxContainer/BlueButton"]
@@ -66,6 +68,7 @@ vertical_alignment = 1
 
 [node name="DeleteButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 icon = ExtResource("5_g8j4e")
 
 [node name="StartButton" type="Button" parent="Control"]

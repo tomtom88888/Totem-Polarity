@@ -87,6 +87,7 @@ vertical_alignment = 1
 
 [node name="DeleteButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 icon = ExtResource("6_1bdul")
 
 [node name="StartButton" type="Button" parent="Control"]
