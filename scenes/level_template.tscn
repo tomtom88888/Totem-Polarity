@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://vfki023yaxbl" path="res://sprites/StartButton.png" id="2_s0di0"]
 [ext_resource type="Texture2D" uid="uid://klw01bp52uw7" path="res://sprites/RedTotemButton.png" id="3_1c54r"]
 [ext_resource type="PackedScene" uid="uid://fpptvpvtjw4w" path="res://scenes/player.tscn" id="3_js3e4"]
+[ext_resource type="FontFile" uid="uid://bmmn1uwaaao6p" path="res://fonts/Outfit-ExtraBold.ttf" id="3_xorgw"]
 [ext_resource type="Texture2D" uid="uid://d0w1d27cdsvc5" path="res://sprites/BlueTotemButton.png" id="4_dmlfx"]
-[ext_resource type="Texture2D" uid="uid://blfhvgi0a6uok" path="res://sprites/move.png" id="4_kg6y0"]
 [ext_resource type="Texture2D" uid="uid://cqtqocxsarhku" path="res://sprites/trash.png" id="5_g8j4e"]
 
 [node name="LevelTemplate" type="Node2D"]
@@ -34,13 +34,34 @@ theme_override_constants/separation = 10
 layout_mode = 2
 icon = ExtResource("3_1c54r")
 
+[node name="RedTotemsLeft" type="Label" parent="Control/HBoxContainer/RedButton"]
+layout_mode = 1
+offset_left = 24.0
+offset_top = -24.0
+offset_right = 97.715
+offset_bottom = 60.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("3_xorgw")
+theme_override_font_sizes/font_size = 66
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BlueButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("4_dmlfx")
 
-[node name="MoveButton" type="Button" parent="Control/HBoxContainer"]
-layout_mode = 2
-icon = ExtResource("4_kg6y0")
+[node name="BlueTotemsLeft" type="Label" parent="Control/HBoxContainer/BlueButton"]
+offset_left = 24.0
+offset_top = -24.0
+offset_right = 97.715
+offset_bottom = 60.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("3_xorgw")
+theme_override_font_sizes/font_size = 66
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DeleteButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
@@ -48,10 +69,11 @@ icon = ExtResource("5_g8j4e")
 
 [node name="StartButton" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 492.0
+offset_left = 554.0
 offset_top = -303.0
-offset_right = 548.0
+offset_right = 610.0
 offset_bottom = -241.0
+scale = Vector2(-1, 1)
 icon = ExtResource("2_s0di0")
 
 [node name="Player" parent="." instance=ExtResource("3_js3e4")]
@@ -59,8 +81,16 @@ unique_name_in_owner = true
 position = Vector2(572, 428)
 scale = Vector2(0.6, 0.6)
 
+[node name="RedTotemTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="BlueTotemTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="pressed" from="Control/HBoxContainer/RedButton" to="." method="_on_red_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/BlueButton" to="." method="_on_blue_button_pressed"]
-[connection signal="pressed" from="Control/HBoxContainer/MoveButton" to="." method="_on_move_button_pressed"]
-[connection signal="pressed" from="Control/HBoxContainer/DeleteButton" to="." method="_on_delete_button_pressed"]
-[connection signal="pressed" from="Control/StartButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="RedTotemTimer" to="." method="_on_red_totem_timer_timeout"]
+[connection signal="timeout" from="BlueTotemTimer" to="." method="_on_blue_totem_timer_timeout"]
