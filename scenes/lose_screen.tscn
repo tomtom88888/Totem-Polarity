@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bldt1ypnboksq"]
+[gd_scene load_steps=13 format=3 uid="uid://ch5wcjaspyk41"]
 
-[ext_resource type="Texture2D" uid="uid://bykm6pc8o6m78" path="res://sprites/Main_Menu_Background.png" id="1_koa8c"]
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_w6d2p"]
-[ext_resource type="Texture2D" uid="uid://d08s81f1kyuu3" path="res://sprites/TotemPolarityLogo.png" id="2_bwwv6"]
-[ext_resource type="Texture2D" uid="uid://c2e4xos7ofkqg" path="res://sprites/MenuStartButton.png" id="3_ha0vr"]
-[ext_resource type="Texture2D" uid="uid://6ebdv20vm4db" path="res://sprites/RedTotem.png" id="4_cbu0d"]
-[ext_resource type="Texture2D" uid="uid://dt2mxfr52fcgt" path="res://sprites/BlueTotem.png" id="5_sdcpd"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_wyg5x"]
+[ext_resource type="Texture2D" uid="uid://d08s81f1kyuu3" path="res://sprites/TotemPolarityLogo.png" id="2_7eyk7"]
+[ext_resource type="Texture2D" uid="uid://bykm6pc8o6m78" path="res://sprites/Main_Menu_Background.png" id="3_u70dk"]
+[ext_resource type="Texture2D" uid="uid://c2e4xos7ofkqg" path="res://sprites/MenuStartButton.png" id="4_41vlf"]
+[ext_resource type="Texture2D" uid="uid://6ebdv20vm4db" path="res://sprites/RedTotem.png" id="5_x3ouf"]
+[ext_resource type="Texture2D" uid="uid://dt2mxfr52fcgt" path="res://sprites/BlueTotem.png" id="6_pyke2"]
 
 [sub_resource type="Animation" id="Animation_hwslk"]
 length = 0.001
@@ -90,14 +90,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_w6d2p")
+script = ExtResource("1_wyg5x")
 
 [node name="Title" type="TextureRect" parent="."]
 layout_mode = 1
 offset_right = 2880.0
 offset_bottom = 576.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_bwwv6")
+texture = ExtResource("2_7eyk7")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
@@ -106,7 +106,7 @@ offset_left = -3.0
 offset_top = -204.0
 offset_right = 1924.0
 offset_bottom = 1085.0
-texture = ExtResource("1_koa8c")
+texture = ExtResource("3_u70dk")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -116,7 +116,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 130
-theme_override_constants/margin_top = 120
+theme_override_constants/margin_top = 300
 theme_override_constants/margin_right = 130
 theme_override_constants/margin_bottom = 20
 
@@ -133,12 +133,12 @@ alignment = 1
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-icon = ExtResource("3_ha0vr")
+icon = ExtResource("4_41vlf")
 flat = true
 
 [node name="RedTotem" type="Sprite2D" parent="."]
 position = Vector2(117, 371)
-texture = ExtResource("4_cbu0d")
+texture = ExtResource("5_x3ouf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RedTotem"]
 libraries = {
@@ -148,7 +148,7 @@ autoplay = "up_down"
 
 [node name="BlueTotem" type="Sprite2D" parent="."]
 position = Vector2(1036, 371)
-texture = ExtResource("5_sdcpd")
+texture = ExtResource("6_pyke2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BlueTotem"]
 libraries = {
