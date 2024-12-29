@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://begpq4arq0tbf"]
+[gd_scene load_steps=6 format=3 uid="uid://begpq4arq0tbf"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_1s0ac"]
 [ext_resource type="Texture2D" uid="uid://bykm6pc8o6m78" path="res://sprites/Main_Menu_Background.png" id="3_ut8gw"]
+[ext_resource type="Texture2D" uid="uid://bupuull2xeoak" path="res://sprites/Player.png" id="4_613iv"]
 [ext_resource type="Texture2D" uid="uid://d08s81f1kyuu3" path="res://sprites/TotemPolarityLogo.png" id="4_rb8rj"]
+[ext_resource type="Texture2D" uid="uid://blfhvgi0a6uok" path="res://sprites/move.png" id="5_7vvyu"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -75,3 +77,19 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 128
 text = "Settings"
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -638.0
+offset_top = -118.0
+offset_right = -226.0
+offset_bottom = 290.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_icons/checked = ExtResource("4_613iv")
+theme_override_icons/unchecked = ExtResource("5_7vvyu")
