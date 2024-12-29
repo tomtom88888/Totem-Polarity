@@ -2,7 +2,7 @@ class_name MainMenu
 extends Control
 
 @onready var start_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/StartButton as Button
-@onready var start_level = preload("res://scenes/level_1.tscn") as PackedScene
+@onready var start_level = preload("res://scenes/level_menu.tscn") as PackedScene
 
 func _ready():
 	start_button.button_down.connect(on_start_button_pressed)
