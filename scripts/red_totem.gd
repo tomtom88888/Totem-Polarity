@@ -3,6 +3,7 @@ var player
 var game_started = false
 var used = false
 @export var radius = 300
+
 var is_dragging = false
 var mouse_offset = Vector2.ZERO
 var move = false

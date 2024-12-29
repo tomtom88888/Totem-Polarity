@@ -1,5 +1,7 @@
 extends Node2D
 
+
+@export var camera_zoom = 1
 @onready var delete_button: Button = $Control/HBoxContainer/DeleteButton
 @onready var blue_button: Button = $Control/HBoxContainer/BlueButton
 @onready var red_button: Button = $Control/HBoxContainer/RedButton
@@ -8,8 +10,8 @@ extends Node2D
 @onready var blue_totems_left: Label = $Control/HBoxContainer/BlueButton/BlueTotemsLeft
 @onready var red_totems_left: Label = $Control/HBoxContainer/RedButton/RedTotemsLeft
 
-@export var red_totem_amount = 4
-@export var blue_totem_amount = 3
+@export var red_totem_amount = 20
+@export var blue_totem_amount = 20
 
 @onready var red_totem_timer: Timer = $RedTotemTimer
 @onready var blue_totem_timer: Timer = $BlueTotemTimer
@@ -39,7 +41,10 @@ func _draw() -> void:
 			draw_line(Vector2(0, col), Vector2(1500, col), Color(0,0,0,0.2), 1.0)
 
 func _ready() -> void:
-	pass
+	$Camera2D.zoom.x = camera_zoom
+	$Camera2D.zoom.y = camera_zoom
+	$Control.scale.x = 1/camera_zoom
+	$Control.scale.y = 1/camera_zoom
 
 
 func _process(_delta: float) -> void:

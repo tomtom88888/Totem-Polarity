@@ -27,11 +27,11 @@ sources/0 = SubResource("TileSetAtlasSource_6wptv")
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource("1_x0o2t")
 
-[node name="WinFlag" parent="." instance=ExtResource("2_vdmat")]
-position = Vector2(465, 284)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
+
+[node name="WinFlag" parent="." instance=ExtResource("2_vdmat")]
+position = Vector2(465, 284)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
