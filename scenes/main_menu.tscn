@@ -129,16 +129,6 @@ theme_override_font_sizes/font_size = 32
 icon = ExtResource("3_ha0vr")
 flat = true
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 2
-offset_left = 54.0
-offset_top = 42.0
-offset_right = 946.0
-offset_bottom = 130.0
-theme_override_fonts/font = ExtResource("6_p8i21")
-theme_override_font_sizes/font_size = 64
-text = "Totem Polarity"
-
 [node name="RedTotem" type="Sprite2D" parent="."]
 position = Vector2(117, 371)
 texture = ExtResource("4_cbu0d")
@@ -158,3 +148,18 @@ libraries = {
 "": SubResource("AnimationLibrary_7srqd")
 }
 autoplay = "up_down"
+
+[node name="Title" type="Node" parent="."]
+
+[node name="Totem" type="Label" parent="Title"]
+anchors_preset = -1
+anchor_left = 0.306424
+anchor_top = 0.0601852
+anchor_right = 0.473958
+anchor_bottom = 0.195988
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_p8i21")
+theme_override_font_sizes/font_size = 64
+text = "Totem
+"
+metadata/_edit_use_anchors_ = true
