@@ -52,6 +52,7 @@ theme_override_font_sizes/font_size = 128
 text = "Settings"
 
 [node name="SoundEffects" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 19.0
 offset_top = 263.0
