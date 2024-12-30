@@ -12,12 +12,15 @@ extends Node2D
 
 @export var red_totem_amount = 20
 @export var blue_totem_amount = 20
+@export var level = 0
+@export var course = 3
 
 @onready var red_totem_timer: Timer = $RedTotemTimer
 @onready var blue_totem_timer: Timer = $BlueTotemTimer
 @onready var win_scene = preload("res://scenes/win.tscn") as PackedScene
 
 signal goIntoExit
+
 
 var draw_grid = true
 var is_red = false
@@ -160,7 +163,7 @@ func _on_delete_area_area_entered(area: Area2D) -> void:
 func _on_back_button_pressed() -> void:
 	#get_tree().change_scene_to_file("res://scenes/level_menu.tscn")
 	#get_parent().switch_scene(preload("res://scenes/level_menu.tscn"))
-	get_parent().to_level_menu()
+	get_parent().get_parent().to_level_menu()
 
 
 func _on_level_anim_finished() -> void:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwlhs178snypr"]
 
 [ext_resource type="Script" path="res://scripts/mutli_level_template.gd" id="1_uauyt"]
-[ext_resource type="PackedScene" uid="uid://c4e24h0t0tk7d" path="res://levels/tutorial/course_1.tscn" id="2_3cal5"]
+[ext_resource type="PackedScene" uid="uid://c4e24h0t0tk7d" path="res://levels/0/0_course_1.tscn" id="2_3cal5"]
 
 [node name="TutorialMultiLevel" type="Node2D"]
 script = ExtResource("1_uauyt")

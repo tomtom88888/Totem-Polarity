@@ -1,22 +1,30 @@
-[gd_scene load_steps=19 format=4 uid="uid://drqnneardtmji"]
+[gd_scene load_steps=19 format=4 uid="uid://c4e24h0t0tk7d"]
 
-[ext_resource type="Script" path="res://scripts/game_logic.gd" id="1_jc8i4"]
-[ext_resource type="FontFile" uid="uid://bmmn1uwaaao6p" path="res://fonts/Outfit-ExtraBold.ttf" id="2_mwntc"]
-[ext_resource type="Texture2D" uid="uid://8ddvltan4xdr" path="res://sprites/CheckOff.png" id="3_qyd7m"]
-[ext_resource type="Texture2D" uid="uid://de0x3p8jvp5n3" path="res://sprites/CheckOn.png" id="4_3gn8t"]
-[ext_resource type="Texture2D" uid="uid://eb6jcs4onbsv" path="res://sprites/BGLevel.png" id="5_4ei2c"]
-[ext_resource type="Texture2D" uid="uid://cls8psijj0h33" path="res://sprites/back.png" id="6_4jmki"]
-[ext_resource type="Texture2D" uid="uid://klw01bp52uw7" path="res://sprites/RedTotemButton.png" id="7_ko4fs"]
-[ext_resource type="Texture2D" uid="uid://d0w1d27cdsvc5" path="res://sprites/BlueTotemButton.png" id="8_gn32r"]
-[ext_resource type="Texture2D" uid="uid://dgt0sso7bf1fc" path="res://sprites/Delete.png" id="9_ob0u0"]
-[ext_resource type="Texture2D" uid="uid://vfki023yaxbl" path="res://sprites/StartButton.png" id="10_t5vmy"]
-[ext_resource type="Texture2D" uid="uid://bldfdab1yqjo5" path="res://sprites/Tileset.png" id="11_7dp7n"]
-[ext_resource type="PackedScene" uid="uid://eskjbpwx220j" path="res://scenes/win_flag.tscn" id="12_0vt7k"]
-[ext_resource type="PackedScene" uid="uid://fpptvpvtjw4w" path="res://scenes/player.tscn" id="13_wa62s"]
-[ext_resource type="PackedScene" uid="uid://cyxcsqnxjfij4" path="res://scenes/level_anim.tscn" id="14_cym8d"]
+[ext_resource type="Script" path="res://scripts/game_logic.gd" id="1_hc3mk"]
+[ext_resource type="FontFile" uid="uid://bmmn1uwaaao6p" path="res://fonts/Outfit-ExtraBold.ttf" id="2_uytr6"]
+[ext_resource type="Texture2D" uid="uid://8ddvltan4xdr" path="res://sprites/CheckOff.png" id="3_l3dea"]
+[ext_resource type="Texture2D" uid="uid://de0x3p8jvp5n3" path="res://sprites/CheckOn.png" id="4_80qby"]
+[ext_resource type="Texture2D" uid="uid://eb6jcs4onbsv" path="res://sprites/BGLevel.png" id="5_cs1wi"]
+[ext_resource type="Texture2D" uid="uid://cls8psijj0h33" path="res://sprites/back.png" id="6_kr0r5"]
+[ext_resource type="Texture2D" uid="uid://klw01bp52uw7" path="res://sprites/RedTotemButton.png" id="7_hkhg7"]
+[ext_resource type="Texture2D" uid="uid://d0w1d27cdsvc5" path="res://sprites/BlueTotemButton.png" id="8_85gu0"]
+[ext_resource type="Texture2D" uid="uid://dgt0sso7bf1fc" path="res://sprites/Delete.png" id="9_2472v"]
+[ext_resource type="Texture2D" uid="uid://vfki023yaxbl" path="res://sprites/StartButton.png" id="10_ivjw5"]
+[ext_resource type="Texture2D" uid="uid://bldfdab1yqjo5" path="res://sprites/Tileset.png" id="11_gg5hq"]
+[ext_resource type="PackedScene" uid="uid://eskjbpwx220j" path="res://scenes/win_flag.tscn" id="12_4fvnj"]
+[ext_resource type="PackedScene" uid="uid://fpptvpvtjw4w" path="res://scenes/player.tscn" id="13_55uqb"]
+[ext_resource type="PackedScene" uid="uid://cyxcsqnxjfij4" path="res://scenes/level_anim.tscn" id="14_roldj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sebjp"]
+font = ExtResource("2_uytr6")
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4ghv"]
+size = Vector2(65, 78)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jn8hd"]
-texture = ExtResource("11_7dp7n")
+texture = ExtResource("11_gg5hq")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -32,25 +40,14 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_jn8hd")
 
-[sub_resource type="LabelSettings" id="LabelSettings_sebjp"]
-font = ExtResource("2_mwntc")
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4ghv"]
-size = Vector2(65, 78)
-
-[node name="course2" type="Node2D"]
-script = ExtResource("1_jc8i4")
-red_totem_amount = 0
-blue_totem_amount = 1
+[node name="course1" type="Node2D"]
+script = ExtResource("1_hc3mk")
+red_totem_amount = 1
+blue_totem_amount = 0
+course = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
-
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAARAAkAAQABAAAAAAAQAAkAAQAAAAAAAAAPAAkAAQABAAAAAAAOAAkAAQABAAEAAAANAAkAAQAAAAEAAAAMAAkAAQABAAAAAAALAAkAAQAAAAAAAAAKAAkAAQAAAAEAAAAJAAkAAQABAAEAAAAIAAkAAQAAAAAAAAAHAAkAAQABAAAAAAAGAAkAAQAAAAEAAAAFAAkAAQABAAEAAAAEAAkAAQAAAAEAAAADAAkAAQABAAAAAAACAAkAAQAAAAAAAAABAAkAAQABAAAAAAAAAAkAAQAAAAAAAAAAAAoAAQAAAAEAAAABAAoAAQAAAAAAAAACAAoAAQABAAAAAAADAAoAAQABAAEAAAAEAAoAAQAAAAAAAAAFAAoAAQAAAAEAAAAGAAoAAQABAAAAAAAHAAoAAQAAAAEAAAAIAAoAAQAAAAAAAAAJAAoAAQABAAEAAAAKAAoAAQABAAAAAAALAAoAAQABAAEAAAAMAAoAAQAAAAAAAAANAAoAAQAAAAEAAAAOAAoAAQABAAAAAAAPAAoAAQAAAAAAAAAQAAoAAQAAAAEAAAARAAoAAQABAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAEAAAABAAIAAQABAAAAAAABAAMAAQABAAEAAAACAAIAAQAAAAAAAAACAAMAAQAAAAEAAAADAAIAAQABAAAAAAADAAMAAQABAAEAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAEAAAAFAAIAAQABAAAAAAAFAAMAAQABAAEAAAAGAAIAAQAAAAAAAAAGAAMAAQAAAAEAAAAHAAIAAQABAAAAAAAHAAMAAQABAAEAAAAIAAIAAQAAAAAAAAAIAAMAAQAAAAEAAAAJAAIAAQABAAAAAAAJAAMAAQABAAEAAAAKAAIAAQAAAAAAAAAKAAMAAQAAAAEAAAALAAIAAQABAAAAAAALAAMAAQABAAEAAAAMAAIAAQAAAAAAAAAMAAMAAQAAAAEAAAANAAIAAQABAAAAAAANAAMAAQABAAEAAAAOAAIAAQAAAAAAAAAOAAMAAQAAAAEAAAAPAAIAAQABAAAAAAAPAAMAAQABAAEAAAAQAAIAAQAAAAAAAAAQAAMAAQAAAAEAAAARAAIAAQABAAAAAAARAAMAAQABAAEAAAAQAAAAAQAAAAAAAAAQAAEAAQAAAAEAAAARAAAAAQABAAAAAAARAAEAAQABAAEAAAAOAAAAAQAAAAAAAAAOAAEAAQAAAAEAAAAPAAAAAQABAAAAAAAPAAEAAQABAAEAAAAMAAAAAQAAAAAAAAAMAAEAAQAAAAEAAAANAAAAAQABAAAAAAANAAEAAQABAAEAAAAKAAAAAQAAAAAAAAAKAAEAAQAAAAEAAAALAAAAAQABAAAAAAALAAEAAQABAAEAAAAIAAAAAQAAAAAAAAAIAAEAAQAAAAEAAAAJAAAAAQABAAAAAAAJAAEAAQABAAEAAAAGAAAAAQAAAAAAAAAGAAEAAQAAAAEAAAAHAAAAAQABAAAAAAAHAAEAAQABAAEAAAAEAAAAAQAAAAAAAAAEAAEAAQAAAAEAAAAFAAAAAQABAAAAAAAFAAEAAQABAAEAAAACAAAAAQAAAAAAAAACAAEAAQAAAAEAAAADAAAAAQABAAAAAAADAAEAAQABAAEAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAEAAAABAAAAAQABAAAAAAABAAEAAQABAAEAAAA=")
-tile_set = SubResource("TileSet_21fpx")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -66,7 +63,7 @@ offset_left = -238.0
 offset_top = 135.0
 offset_right = -59.0
 offset_bottom = 158.0
-text = "Place down a blue totem!"
+text = "Place down a red totem!"
 label_settings = SubResource("LabelSettings_sebjp")
 
 [node name="CheckButton" type="CheckButton" parent="Control"]
@@ -83,10 +80,10 @@ offset_bottom = -192.0
 grow_horizontal = 0
 grow_vertical = 2
 focus_mode = 0
-theme_override_fonts/font = ExtResource("2_mwntc")
+theme_override_fonts/font = ExtResource("2_uytr6")
 theme_override_font_sizes/font_size = 30
-theme_override_icons/checked = ExtResource("3_qyd7m")
-theme_override_icons/unchecked = ExtResource("4_3gn8t")
+theme_override_icons/checked = ExtResource("3_l3dea")
+theme_override_icons/unchecked = ExtResource("4_80qby")
 button_pressed = true
 text = "GRID:"
 
@@ -102,7 +99,7 @@ offset_top = -324.0
 offset_right = 556.0
 offset_bottom = 324.0
 grow_horizontal = 2
-texture = ExtResource("5_4ei2c")
+texture = ExtResource("5_cs1wi")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 0
@@ -115,12 +112,12 @@ theme_override_constants/separation = 10
 [node name="BackButton" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("6_4jmki")
+texture_normal = ExtResource("6_kr0r5")
 
 [node name="RedButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-icon = ExtResource("7_ko4fs")
+icon = ExtResource("7_hkhg7")
 
 [node name="RedTotemsLeft" type="Label" parent="Control/HBoxContainer/RedButton"]
 layout_mode = 1
@@ -129,7 +126,7 @@ offset_top = -24.0
 offset_right = 97.715
 offset_bottom = 60.0
 scale = Vector2(0.3, 0.3)
-theme_override_fonts/font = ExtResource("2_mwntc")
+theme_override_fonts/font = ExtResource("2_uytr6")
 theme_override_font_sizes/font_size = 66
 text = "3"
 horizontal_alignment = 1
@@ -138,7 +135,7 @@ vertical_alignment = 1
 [node name="BlueButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-icon = ExtResource("8_gn32r")
+icon = ExtResource("8_85gu0")
 
 [node name="BlueTotemsLeft" type="Label" parent="Control/HBoxContainer/BlueButton"]
 layout_mode = 0
@@ -147,7 +144,7 @@ offset_top = -24.0
 offset_right = 97.715
 offset_bottom = 60.0
 scale = Vector2(0.3, 0.3)
-theme_override_fonts/font = ExtResource("2_mwntc")
+theme_override_fonts/font = ExtResource("2_uytr6")
 theme_override_font_sizes/font_size = 66
 text = "3"
 horizontal_alignment = 1
@@ -156,7 +153,7 @@ vertical_alignment = 1
 [node name="DeleteButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-icon = ExtResource("9_ob0u0")
+icon = ExtResource("9_2472v")
 
 [node name="DeleteArea" type="Area2D" parent="Control/HBoxContainer/DeleteButton"]
 
@@ -171,15 +168,19 @@ offset_top = -303.0
 offset_right = 610.0
 offset_bottom = -241.0
 scale = Vector2(-1, 1)
-icon = ExtResource("10_t5vmy")
+icon = ExtResource("10_ivjw5")
 
-[node name="WinFlag" parent="." instance=ExtResource("12_0vt7k")]
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAARAAkAAQABAAAAAAAQAAkAAQAAAAAAAAAPAAkAAQABAAAAAAAOAAkAAQABAAEAAAANAAkAAQAAAAEAAAAMAAkAAQABAAAAAAALAAkAAQAAAAAAAAAKAAkAAQAAAAEAAAAJAAkAAQABAAEAAAAIAAkAAQAAAAAAAAAHAAkAAQABAAAAAAAGAAkAAQAAAAEAAAAFAAkAAQABAAEAAAAEAAkAAQAAAAEAAAADAAkAAQABAAAAAAACAAkAAQAAAAAAAAABAAkAAQABAAAAAAAAAAkAAQAAAAAAAAAAAAoAAQAAAAEAAAABAAoAAQAAAAAAAAACAAoAAQABAAAAAAADAAoAAQABAAEAAAAEAAoAAQAAAAAAAAAFAAoAAQAAAAEAAAAGAAoAAQABAAAAAAAHAAoAAQAAAAEAAAAIAAoAAQAAAAAAAAAJAAoAAQABAAEAAAAKAAoAAQABAAAAAAALAAoAAQABAAEAAAAMAAoAAQAAAAAAAAANAAoAAQAAAAEAAAAOAAoAAQABAAAAAAAPAAoAAQAAAAAAAAAQAAoAAQAAAAEAAAARAAoAAQABAAAAAAA=")
+tile_set = SubResource("TileSet_21fpx")
+
+[node name="WinFlag" parent="." instance=ExtResource("12_4fvnj")]
 position = Vector2(634, 524)
 
-[node name="Player" parent="." instance=ExtResource("13_wa62s")]
+[node name="Player" parent="." instance=ExtResource("13_55uqb")]
 unique_name_in_owner = true
 z_index = -1
-position = Vector2(268, 532)
+position = Vector2(268, 544)
 scale = Vector2(0.5, 0.5)
 
 [node name="RedTotemTimer" type="Timer" parent="."]
@@ -190,8 +191,8 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
-[node name="level_anim" parent="." instance=ExtResource("14_cym8d")]
-level_text = "LEVEL 0: PART 2"
+[node name="level_anim" parent="." instance=ExtResource("14_roldj")]
+level_text = "LEVEL 0: PART 1"
 
 [connection signal="toggled" from="Control/CheckButton" to="." method="_on_grid_button_toggled"]
 [connection signal="pressed" from="Control/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

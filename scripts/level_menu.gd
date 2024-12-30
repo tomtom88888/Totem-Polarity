@@ -12,8 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_tutorial_button_pressed() -> void:
-	get_parent().switch_scene(preload("res://scenes/level_template.tscn"))
-
+	get_parent().switch_scene(preload("res://levels/0/0_multi_level.tscn"))
 
 
 #func _on_tutorial_button_down() -> void:

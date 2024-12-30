@@ -5,6 +5,7 @@ var is_gravity = false
 @onready var lose_timer: Timer = $LoseTimer
 var prev_pos
 var game_started = false
+@onready var multi_level_logic: Node2D = get_parent().get_parent()
 
 func _ready() -> void:
 	game_started = false
@@ -25,6 +26,7 @@ func _process(delta: float) -> void:
 
 func _on_lose_timer_timeout() -> void:
 	if position.distance_to(prev_pos) < 20:
-		get_tree().reload_current_scene()
+		multi_level_logic.reload_current_course()
 	else:
 		prev_pos = position
+		

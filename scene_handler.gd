@@ -45,6 +45,7 @@ func switch_scene(scene):
 	scene_transition_animation.play("fade_out")
 	add_child(current_scene)
 
+
 func to_level_menu():
 	switch_scene(level_menu_scene)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
