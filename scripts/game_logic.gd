@@ -73,10 +73,10 @@ func _input(event: InputEvent) -> void:
 		return
 	if event.button_index != MOUSE_BUTTON_RIGHT and event.button_index != MOUSE_BUTTON_LEFT:
 		return
-	#if event.button_index == MOUSE_BUTTON_RIGHT:
-		#print("fuck")
-		#get_tree().call_group("totems", "change_move_true")
-		#return
+	if event.button_index == MOUSE_BUTTON_RIGHT:
+		print("fuck")
+		get_tree().call_group("totems", "change_move_true")
+		return
 	if event.button_index == MOUSE_BUTTON_LEFT:
 		get_tree().call_group("totems", "change_move_false")
 

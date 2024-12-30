@@ -44,12 +44,12 @@ func _process(delta: float) -> void:
 	var distance_from_player = position - player.position
 	if is_dragging:
 		global_position = snapped(get_global_mouse_position() + mouse_offset, Vector2(64, 64))
-	if game_started and position.distance_to(player.position) < radius and not used and position.distance_to(player.position) > 30:
+	if game_started and position.distance_to(player.position) < radius and not used and position.distance_to(player.position) > 50:
 		player.is_gravity = false
 		var move_to_velocity = (player.position.move_toward(position, delta * 200) - player.position) * 4
 		# move_to_velocity.y = move_to_velocity.y * 10
 		player.velocity += move_to_velocity
-	elif game_started and position.distance_to(player.position) < 30:
+	elif game_started and position.distance_to(player.position) < 50:
 		used = true
 		player.is_gravity = true
 
