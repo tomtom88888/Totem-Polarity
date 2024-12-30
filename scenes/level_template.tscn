@@ -69,6 +69,7 @@ theme_override_constants/separation = 10
 
 [node name="BackButton" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_mqwya")
 
 [node name="RedButton" type="Button" parent="Control/HBoxContainer"]

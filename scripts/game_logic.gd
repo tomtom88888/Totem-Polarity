@@ -158,6 +158,7 @@ func _on_delete_area_area_entered(area: Area2D) -> void:
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level_menu.tscn")
+	#get_parent().switch_scene(preload("res://scenes/level_menu.tscn"))
 
 
 func _on_level_anim_finished() -> void:

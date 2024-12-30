@@ -51,6 +51,7 @@ offset_right = 257.0
 offset_bottom = 97.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_uafm8")
 
 [node name="BackButton" type="TextureButton" parent="."]
@@ -59,6 +60,7 @@ offset_left = 29.0
 offset_top = 41.0
 offset_right = 104.0
 offset_bottom = 110.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_1q2vm")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_tutorial_button_pressed"]
