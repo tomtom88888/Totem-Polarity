@@ -41,12 +41,11 @@ func _draw() -> void:
 			draw_line(Vector2(0, col), Vector2(1500, col), Color(0,0,0,0.2), 1.0)
 
 func _ready() -> void:
-	$SceneTransitionAnimation/ColorRect.color.a = 255
-	$SceneTransitionAnimation/AnimationPlayer.play("fade_out")
 	$Camera2D.zoom.x = camera_zoom
 	$Camera2D.zoom.y = camera_zoom
 	$Control.scale.x = 1/camera_zoom
 	$Control.scale.y = 1/camera_zoom
+	SoundPlayer.stop()
 
 
 func _process(_delta: float) -> void:
@@ -70,10 +69,10 @@ func _input(event: InputEvent) -> void:
 		return
 	if event.button_index != MOUSE_BUTTON_RIGHT and event.button_index != MOUSE_BUTTON_LEFT:
 		return
-	if event.button_index == MOUSE_BUTTON_RIGHT:
-		print("fuck")
-		get_tree().call_group("totems", "change_move_true")
-		return
+	#if event.button_index == MOUSE_BUTTON_RIGHT:
+		#print("fuck")
+		#get_tree().call_group("totems", "change_move_true")
+		#return
 	if event.button_index == MOUSE_BUTTON_LEFT:
 		get_tree().call_group("totems", "change_move_false")
 
@@ -159,3 +158,8 @@ func _on_delete_area_area_entered(area: Area2D) -> void:
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level_menu.tscn")
+
+
+func _on_level_anim_finished() -> void:
+	SoundPlayer.stream = preload("res://sounds/InGameMusic.wav")
+	SoundPlayer.play()

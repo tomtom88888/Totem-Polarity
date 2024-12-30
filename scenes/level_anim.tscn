@@ -1,0 +1,156 @@
+[gd_scene load_steps=8 format=3 uid="uid://cyxcsqnxjfij4"]
+
+[ext_resource type="FontFile" uid="uid://bmmn1uwaaao6p" path="res://fonts/Outfit-ExtraBold.ttf" id="2_57dxs"]
+[ext_resource type="AudioStream" uid="uid://cg3u4dftaato2" path="res://sounds/woosh.mp3" id="2_y1mnb"]
+
+[sub_resource type="GDScript" id="GDScript_lh6rq"]
+script/source = "extends Control
+
+@onready var level: Label = $level
+@export var level_text = \"LEVEL 1\"
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+signal level_anim_finished
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	level.text =  level_text
+	await get_tree().create_timer(0.5).timeout
+	animation_player.play(\"level_start\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	level_anim_finished.emit()
+"
+
+[sub_resource type="Animation" id="Animation_vw8s8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("level:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(393, 261)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("level:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["LEVEL 1"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_1evs1"]
+resource_name = "level_start"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("level:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.000632484, 0.678161, 2.31827, 2.92954),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(393, -136), Vector2(393, 261), Vector2(393, 261), Vector2(393, -136)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("level:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.76326),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["LEVEL 1", "GO!"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0120146, 2.2685),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_808ha"]
+_data = {
+"RESET": SubResource("Animation_vw8s8"),
+"level_start": SubResource("Animation_1evs1")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_k0bgv"]
+font = ExtResource("2_57dxs")
+font_size = 100
+outline_size = 35
+outline_color = Color(0, 0, 0, 1)
+
+[node name="level_anim" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_lh6rq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_808ha")
+}
+
+[node name="level" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.0
+offset_top = -459.999
+offset_right = 183.0
+offset_bottom = -333.999
+grow_horizontal = 2
+grow_vertical = 2
+text = "LEVEL 1"
+label_settings = SubResource("LabelSettings_k0bgv")
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_y1mnb")
+volume_db = 2.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

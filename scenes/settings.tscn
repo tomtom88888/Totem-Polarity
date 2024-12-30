@@ -106,6 +106,7 @@ theme_override_icons/grabber_disabled = ExtResource("5_vkl03")
 value = 100.0
 
 [node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 81.0
 offset_top = 50.0
 offset_right = 156.0

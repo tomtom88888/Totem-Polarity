@@ -1,8 +1,7 @@
 extends Control
 
-@onready var music_button: CheckButton = $MusicText/MusicButton
-@onready var texture_button: TextureButton = $TextureButton
-const main_menu = preload("res://scenes/main_menu.tscn")
+@onready var music_button: HSlider = $MusicText/MusicSlider
+@onready var texture_button: TextureButton = $BackButton
 var playing = false
 
 # Called when the node enters the scene tree for the first time.
@@ -28,4 +27,4 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 
 func _on_back_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		get_parent().main_menu()

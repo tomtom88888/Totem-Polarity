@@ -31,7 +31,7 @@ func change_delete_false():
 
 func _draw():
 	if draw_circ:
-		draw_circle(Vector2(0,0), radius, Color.ORANGE, false)
+		draw_circle(Vector2(0,0), radius, Color("CA3131"), false)
 
 
 func _ready() -> void:
@@ -40,9 +40,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if is_dragging: print("dragging")
 	var distance_from_player = position - player.position
-	print(distance_from_player)
-	if is_dragging and move:
+	if is_dragging:
 		global_position = snapped(get_global_mouse_position() + mouse_offset, Vector2(64, 64))
 	if game_started and position.distance_to(player.position) < radius and not used and position.distance_to(player.position) > 30:
 		player.is_gravity = false

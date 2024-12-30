@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://7aa6re7b4rsg"]
+[gd_scene load_steps=6 format=3 uid="uid://7aa6re7b4rsg"]
 
 [ext_resource type="Script" path="res://scripts/level_menu.gd" id="1_bal1c"]
 [ext_resource type="Texture2D" uid="uid://bykm6pc8o6m78" path="res://sprites/Main_Menu_Background.png" id="2_5cu6l"]
 [ext_resource type="Texture2D" uid="uid://d08s81f1kyuu3" path="res://sprites/TotemPolarityLogo.png" id="3_tiymd"]
 [ext_resource type="Texture2D" uid="uid://dtsxvun5kkhf8" path="res://sprites/tutorial_button.png" id="4_uafm8"]
-[ext_resource type="PackedScene" uid="uid://bx72kjdw81e3p" path="res://scenes/scene_transition_animation.tscn" id="5_50d2g"]
 [ext_resource type="Texture2D" uid="uid://cls8psijj0h33" path="res://sprites/back.png" id="6_1q2vm"]
 
 [node name="LevelMenu" type="Control"]
@@ -54,9 +53,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("4_uafm8")
 
-[node name="SceneTransitionAnimation" parent="." instance=ExtResource("5_50d2g")]
-
 [node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 29.0
 offset_top = 41.0
 offset_right = 104.0
