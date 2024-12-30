@@ -17,7 +17,6 @@ script = ExtResource("1_3nd78")
 radius = 400
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-scale = Vector2(1, 1)
 amount = 30
 lifetime = 2.0
 speed_scale = 0.5

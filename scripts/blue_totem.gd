@@ -31,13 +31,9 @@ func _ready() -> void:
 	pass
 	
 func _process(delta: float) -> void:
-	# if is_dragging and move:
-	# 	global_position = snapped(get_global_mouse_position() + mouse_offset, Vector2(64, 64))
-	# if game_started and position.distance_to(player.position) < radius:
-	# 	if position.x < player.position.x:
-	# 		player.velocity.x = 90000 / position.distance_to(player.position)
-	# 	else:
-	# 		player.velocity.x = -1 * (90000 / position.distance_to(player.position))
+	if is_dragging:
+		global_position = snapped(get_global_mouse_position() + mouse_offset, Vector2(64, 64))
+
 
 	var distance_from_player = position - player.position
 	if is_dragging and move:
