@@ -106,6 +106,13 @@ theme_override_fonts/font = ExtResource("1_x6nxi")
 theme_override_font_sizes/font_size = 86
 text = "You Passed Level!"
 
+[node name="BG" type="TextureRect" parent="."]
+z_index = -5
+layout_mode = 0
+offset_right = 1474.0
+offset_bottom = 908.0
+texture = ExtResource("3_4ectl")
+
 [node name="NextLevelButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -132,13 +139,6 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_x6nxi")
 theme_override_font_sizes/font_size = 41
 text = "Next Level"
-
-[node name="BG" type="TextureRect" parent="."]
-z_index = -5
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("3_4ectl")
 
 [node name="LevelMenuButton" type="TextureButton" parent="."]
 layout_mode = 1

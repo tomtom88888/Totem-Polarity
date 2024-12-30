@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://ch5wcjaspyk41"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_wyg5x"]
-[ext_resource type="Texture2D" uid="uid://d08s81f1kyuu3" path="res://sprites/TotemPolarityLogo.png" id="2_7eyk7"]
+[ext_resource type="FontFile" uid="uid://bmmn1uwaaao6p" path="res://fonts/Outfit-ExtraBold.ttf" id="2_pj8el"]
+[ext_resource type="Texture2D" uid="uid://dmkq82sfscuwm" path="res://sprites/NextLevel.png" id="3_pohnx"]
 [ext_resource type="Texture2D" uid="uid://bykm6pc8o6m78" path="res://sprites/Main_Menu_Background.png" id="3_u70dk"]
-[ext_resource type="Texture2D" uid="uid://c2e4xos7ofkqg" path="res://sprites/MenuStartButton.png" id="4_41vlf"]
+[ext_resource type="Texture2D" uid="uid://b7dduy8soepv1" path="res://sprites/LevelMenu.png" id="5_ej747"]
 [ext_resource type="Texture2D" uid="uid://6ebdv20vm4db" path="res://sprites/RedTotem.png" id="5_x3ouf"]
 [ext_resource type="Texture2D" uid="uid://dt2mxfr52fcgt" path="res://sprites/BlueTotem.png" id="6_pyke2"]
 
@@ -81,7 +81,7 @@ _data = {
 "up_down": SubResource("Animation_fik6w")
 }
 
-[node name="MainMenu" type="Control"]
+[node name="Lose" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,52 +90,81 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_wyg5x")
 
-[node name="Title" type="TextureRect" parent="."]
+[node name="TItle" type="Label" parent="."]
 layout_mode = 1
-offset_right = 2880.0
-offset_bottom = 576.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_7eyk7")
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -163.0
+offset_top = 21.0
+offset_right = 163.0
+offset_bottom = 117.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.752941, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_pj8el")
+theme_override_font_sizes/font_size = 86
+text = "You 	Lost"
 
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-layout_mode = 0
-offset_left = -3.0
-offset_top = -204.0
-offset_right = 1924.0
-offset_bottom = 1085.0
+[node name="BG" type="TextureRect" parent="."]
+z_index = -5
+offset_right = 1474.0
+offset_bottom = 908.0
 texture = ExtResource("3_u70dk")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="NextLevelButton" type="TextureButton" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -139.0
+offset_top = 204.0
+offset_right = 139.0
+offset_bottom = 307.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 130
-theme_override_constants/margin_top = 300
-theme_override_constants/margin_right = 130
-theme_override_constants/margin_bottom = 20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 18
-alignment = 1
-
-[node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 32)
-layout_mode = 2
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 32
-icon = ExtResource("4_41vlf")
-flat = true
+texture_normal = ExtResource("3_pohnx")
+
+[node name="NextLevelText" type="Label" parent="NextLevelButton"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = 24.0
+offset_right = 77.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_pj8el")
+theme_override_font_sizes/font_size = 41
+text = "Try again"
+
+[node name="LevelMenuButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -139.0
+offset_top = 424.0
+offset_right = 139.0
+offset_bottom = 527.0
+grow_horizontal = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_ej747")
+
+[node name="LevelMenuText" type="Label" parent="LevelMenuButton"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = 24.0
+offset_right = 77.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_pj8el")
+theme_override_font_sizes/font_size = 41
+text = "Main Menu"
 
 [node name="RedTotem" type="Sprite2D" parent="."]
 position = Vector2(117, 371)
