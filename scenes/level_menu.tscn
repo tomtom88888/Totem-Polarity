@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://7aa6re7b4rsg"]
+[gd_scene load_steps=14 format=3 uid="uid://7aa6re7b4rsg"]
 
 [ext_resource type="Script" path="res://scripts/level_menu.gd" id="1_bal1c"]
 [ext_resource type="Texture2D" uid="uid://bykm6pc8o6m78" path="res://sprites/Main_Menu_Background.png" id="2_5cu6l"]
 [ext_resource type="Texture2D" uid="uid://d08s81f1kyuu3" path="res://sprites/TotemPolarityLogo.png" id="3_tiymd"]
 [ext_resource type="Texture2D" uid="uid://dtsxvun5kkhf8" path="res://sprites/tutorial_button.png" id="4_uafm8"]
 [ext_resource type="Texture2D" uid="uid://cls8psijj0h33" path="res://sprites/back.png" id="6_1q2vm"]
+[ext_resource type="Texture2D" uid="uid://bbe2iy4fkb17d" path="res://sprites/one_icon.png" id="6_a874i"]
+[ext_resource type="Texture2D" uid="uid://ljfckaswdsj2" path="res://sprites/two_icon.png" id="7_bavsx"]
+[ext_resource type="Texture2D" uid="uid://cixhvxx3tjwaa" path="res://sprites/three_icon.png" id="8_7glsn"]
+[ext_resource type="Texture2D" uid="uid://d2pjdtq2eg4cu" path="res://sprites/4_icon.png" id="9_6jqrv"]
+[ext_resource type="Texture2D" uid="uid://c7edmwbgmguvi" path="res://sprites/5_icon.png" id="10_cripo"]
+[ext_resource type="Texture2D" uid="uid://c4qeose4byira" path="res://sprites/six_icon.png" id="11_t8oqe"]
+[ext_resource type="Texture2D" uid="uid://0q01s3ngvjwg" path="res://sprites/seven_icon.png" id="12_a0a76"]
+[ext_resource type="Texture2D" uid="uid://dy7o6vg5hqo30" path="res://sprites/eight_icon.png" id="13_nalcp"]
 
 [node name="LevelMenu" type="Control"]
 layout_mode = 3
@@ -63,5 +71,165 @@ offset_bottom = 110.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_1q2vm")
 
+[node name="Level1Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -505.0
+offset_top = -158.0
+offset_right = -389.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_mode = 0
+icon = ExtResource("6_a874i")
+flat = true
+
+[node name="Level2Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -377.0
+offset_top = -158.0
+offset_right = -261.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_icons/icon = ExtResource("6_a874i")
+icon = ExtResource("7_bavsx")
+flat = true
+
+[node name="Level3Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -249.0
+offset_top = -158.0
+offset_right = -133.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_icons/icon = ExtResource("6_a874i")
+icon = ExtResource("8_7glsn")
+flat = true
+
+[node name="Level4Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.0
+offset_top = -158.0
+offset_right = -5.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_icons/icon = ExtResource("6_a874i")
+icon = ExtResource("9_6jqrv")
+flat = true
+
+[node name="Level5Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -158.0
+offset_right = 123.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_icons/icon = ExtResource("6_a874i")
+icon = ExtResource("10_cripo")
+flat = true
+
+[node name="Level6Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 135.0
+offset_top = -158.0
+offset_right = 251.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_icons/icon = ExtResource("6_a874i")
+icon = ExtResource("11_t8oqe")
+flat = true
+
+[node name="Level7Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 263.0
+offset_top = -158.0
+offset_right = 379.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_icons/icon = ExtResource("6_a874i")
+icon = ExtResource("12_a0a76")
+flat = true
+
+[node name="Level8Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 391.0
+offset_top = -158.0
+offset_right = 507.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_icons/icon = ExtResource("6_a874i")
+icon = ExtResource("13_nalcp")
+flat = true
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Level1Button" to="." method="_on_level_1_button_pressed"]

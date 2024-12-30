@@ -93,7 +93,6 @@ button_pressed = true
 text = "GRID:"
 
 [node name="BG" type="TextureRect" parent="Control"]
-visible = false
 z_index = -1
 layout_mode = 1
 anchors_preset = 5
@@ -104,6 +103,7 @@ offset_top = -324.0
 offset_right = 556.0
 offset_bottom = 324.0
 grow_horizontal = 2
+mouse_filter = 2
 texture = ExtResource("6_8mdy3")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]

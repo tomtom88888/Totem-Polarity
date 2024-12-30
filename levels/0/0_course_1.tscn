@@ -88,7 +88,6 @@ button_pressed = true
 text = "GRID:"
 
 [node name="BG" type="TextureRect" parent="Control"]
-visible = false
 z_index = -1
 layout_mode = 1
 anchors_preset = 5
@@ -99,6 +98,7 @@ offset_top = -324.0
 offset_right = 556.0
 offset_bottom = 324.0
 grow_horizontal = 2
+mouse_filter = 2
 texture = ExtResource("5_cs1wi")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
@@ -175,7 +175,7 @@ tile_map_data = PackedByteArray("AAARAAkAAQABAAAAAAAQAAkAAQAAAAAAAAAPAAkAAQABAAA
 tile_set = SubResource("TileSet_21fpx")
 
 [node name="WinFlag" parent="." instance=ExtResource("12_4fvnj")]
-position = Vector2(634, 524)
+position = Vector2(405, 404)
 
 [node name="Player" parent="." instance=ExtResource("13_55uqb")]
 unique_name_in_owner = true

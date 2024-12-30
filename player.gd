@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var friction = 0.04
+var friction = 0.032
 var is_gravity = false
 @onready var lose_timer: Timer = $LoseTimer
 var prev_pos
@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 
 func _on_lose_timer_timeout() -> void:
 	if position.distance_to(prev_pos) < 20:
+		print("die")
 		multi_level_logic.reload_current_course()
 	else:
 		prev_pos = position

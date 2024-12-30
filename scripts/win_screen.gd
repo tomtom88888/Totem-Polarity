@@ -18,4 +18,4 @@ func _on_next_level_button_pressed() -> void:
 
 
 func _on_level_menu_button_pressed() -> void:
-	get_parent().switch_scene(level_menu)
+	get_parent().to_level_menu()

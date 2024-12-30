@@ -2,7 +2,7 @@ extends Area2D
 var player
 var game_started = false
 var used = false
-var radius = 300
+var radius = 320
 @onready var is_blue = false
 
 
@@ -31,7 +31,7 @@ func change_delete_false():
 
 func _draw():
 	if draw_circ:
-		draw_circle(Vector2(0,0), radius * 1.5, Color("CA3131"), false)
+		draw_circle(Vector2(0,0), radius * 1.3, Color("CA3131"), false)
 
 
 func _ready() -> void:
@@ -44,13 +44,13 @@ func _process(delta: float) -> void:
 		global_position = snapped(get_global_mouse_position() + mouse_offset, Vector2(64, 64))
 	if position.distance_to(player.position) < radius:
 		print(position.distance_to(player.position))
-	if game_started and position.distance_to(player.position) < radius and not used and position.distance_to(player.position) > 50:
+	if game_started and position.distance_to(player.position) < radius and not used and position.distance_to(player.position) > 70:
 		print(position.distance_to(player.position))
 		player.is_gravity = false
 		var move_to_velocity = (player.position.move_toward(position, delta * 200) - player.position) * 4
 		# move_to_velocity.y = move_to_velocity.y * 10
 		player.velocity += move_to_velocity
-	elif game_started and position.distance_to(player.position) < 50:
+	elif game_started and position.distance_to(player.position) < 70:
 		used = true
 		player.is_gravity = true
 
