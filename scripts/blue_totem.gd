@@ -2,7 +2,7 @@ extends Area2D
 
 var player
 var game_started = false
-@export var radius = 200
+var radius = 300
 @onready var is_blue = true
 
 var is_dragging = false
@@ -68,4 +68,4 @@ func clear_radius_circle():
 
 func _draw():
 	if draw_circ:
-		draw_circle(Vector2(0,0), radius, Color("2500CA"), false)
+		draw_circle(Vector2(0,0), radius * 1.5, Color("2500CA"), false)

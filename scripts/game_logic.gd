@@ -53,6 +53,9 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	LevelData.level = level
+	LevelData.course = course
+	
 	blue_totems_left.text = str(blue_totem_amount)
 	red_totems_left.text = str(red_totem_amount) 
 	
@@ -78,7 +81,6 @@ func _input(event: InputEvent) -> void:
 	if event.button_index != MOUSE_BUTTON_RIGHT and event.button_index != MOUSE_BUTTON_LEFT:
 		return
 	if event.button_index == MOUSE_BUTTON_RIGHT:
-		print("fuck")
 		get_tree().call_group("totems", "change_move_true")
 		return
 	if event.button_index == MOUSE_BUTTON_LEFT:
@@ -88,12 +90,10 @@ func _input(event: InputEvent) -> void:
 	if is_blue and mouse_pos.y > 130 and event.button_index == MOUSE_BUTTON_LEFT and blue_totem_amount > 0 and can_place_blue:
 		var blue_totem = BLUE_TOTEM.instantiate()
 		blue_totem.player = player
-		print("blue totem")
 		blue_totem.global_position = snapped(mouse_pos, Vector2(64, 64))
 		add_child(blue_totem)
 		blue_totem_amount -= 1
 		can_place_blue = false
-		print(blue_totem_amount)
 		blue_totem_timer.start()
 	elif is_red and mouse_pos.y > 130 and event.button_index == MOUSE_BUTTON_LEFT and red_totem_amount > 0 and can_place_red:
 		var red_totem = RED_TOTEM.instantiate()
