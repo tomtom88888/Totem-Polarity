@@ -5,7 +5,7 @@ var used = false
 var radius = 320
 @onready var is_blue = false
 
-
+var no_spam_drag = false
 var is_dragging = false
 var mouse_offset = Vector2.ZERO
 var move = false
@@ -56,15 +56,22 @@ func _process(delta: float) -> void:
 
 func start_game():
 	game_started = true
-	
+
+
+
+func timeout_drag():
+	await get_tree().create_timer(0.5).timeout
+	is_dragging = false
+
 func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and !delete and not get_parent().start_game:
 		if event.button_index == MOUSE_BUTTON_RIGHT:
-			if event.pressed:
+			if event.is_pressed():
 				is_dragging = true
 				mouse_offset = global_position - get_global_mouse_position()
+				timeout_drag()
 			else:
-				is_dragging = false
+				is_dragging=false
 	if event is InputEventMouseButton and delete and !move:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
