@@ -28,7 +28,7 @@ func start_game():
 	game_started = true
 
 func _ready() -> void:
-	pass
+	$Audio.play()
 	
 func _process(delta: float) -> void:
 	if is_dragging:

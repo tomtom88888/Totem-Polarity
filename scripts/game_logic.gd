@@ -44,12 +44,16 @@ func _draw() -> void:
 		for col in range(32, 1500, 64):
 			draw_line(Vector2(0, col), Vector2(1500, col), Color(0,0,0,0.2), 1.0)
 
+func death_animation():
+	pass
+
 func _ready() -> void:
 	$Camera2D.zoom.x = camera_zoom
 	$Camera2D.zoom.y = camera_zoom
 	$Control.scale.x = 1/camera_zoom
 	$Control.scale.y = 1/camera_zoom
 	SoundPlayer.stop()
+	player.connect("modulate_screen", death_animation)
 
 
 func _process(_delta: float) -> void:

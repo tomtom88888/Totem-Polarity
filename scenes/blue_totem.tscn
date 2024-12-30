@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc7y3alsmwqp1"]
+[gd_scene load_steps=7 format=3 uid="uid://cc7y3alsmwqp1"]
 
 [ext_resource type="Script" path="res://scripts/blue_totem.gd" id="1_3nd78"]
 [ext_resource type="Texture2D" uid="uid://dt2mxfr52fcgt" path="res://sprites/BlueTotem.png" id="1_n7dip"]
 [ext_resource type="Texture2D" uid="uid://7r2opkhthgrf" path="res://sprites/minus.png" id="2_otsqs"]
+[ext_resource type="AudioStream" uid="uid://sq2uhsv7fcoo" path="res://sounds/impact_dirt.mp3" id="4_c6wv2"]
 
 [sub_resource type="Curve" id="Curve_3oh83"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.94382, 0.076923), 0.0, 0.0, 0, 0]
@@ -38,3 +39,8 @@ texture = ExtResource("1_n7dip")
 position = Vector2(-0.5, 0)
 scale = Vector2(0.7, 0.7)
 shape = SubResource("RectangleShape2D_6lr05")
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_c6wv2")
+volume_db = 3.0
+pitch_scale = 0.6
