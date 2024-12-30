@@ -40,7 +40,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if is_dragging:
+	if is_dragging and not game_started:
 		global_position = snapped(get_global_mouse_position() + mouse_offset, Vector2(64, 64))
 	if position.distance_to(player.position) < radius:
 		print(position.distance_to(player.position))

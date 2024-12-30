@@ -11,6 +11,7 @@ var move = false
 var delete = false
 var draw_circ = true
 var used = false
+var prepeling
 
 func change_move_true():
 	move = true
@@ -31,23 +32,26 @@ func _ready() -> void:
 	$Audio.play()
 	
 func _process(delta: float) -> void:
-	if is_dragging:
+	if is_dragging and not game_started:
 		global_position = snapped(get_global_mouse_position() + mouse_offset, Vector2(64, 64))
-
-
 	var distance_from_player = position - player.position
-	if is_dragging and move:
+	if is_dragging and move and not game_started:
 		global_position = snapped(get_global_mouse_position() + mouse_offset, Vector2(64, 64))
-	if game_started and position.distance_to(player.position) < radius and not used and position.distance_to(player.position) < radius+30:
+	if game_started and position.distance_to(player.position) < 100:
+		prepeling = true
 		player.is_gravity = false
 		var move_to_velocity = -(player.position.move_toward(position, delta * 200) - player.position) * 4
-		# move_to_velocity.y = move_to_velocity.y * 10
+		used = false
 		player.velocity += move_to_velocity
-	elif game_started and position.distance_to(player.position) < radius+30:
-		used = true
+	elif prepeling and game_started and position.distance_to(player.position) < radius + 30:
+		player.is_gravity = false
+		var move_to_velocity = -(player.position.move_toward(position, delta * 200) - player.position) * 4
+		player.velocity += move_to_velocity
+		used = false
+	elif position.distance_to(player.position) > radius and !used:
+		prepeling = false
 		player.is_gravity = true
-
-			
+		used = true
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and !delete and move:
 		if event.button_index == MOUSE_BUTTON_RIGHT:
@@ -69,3 +73,4 @@ func clear_radius_circle():
 func _draw():
 	if draw_circ:
 		draw_circle(Vector2(0,0), radius * 1.5, Color("2500CA"), false)
+		draw_circle(Vector2(0,0), 100 * 1.5, Color("2500CA"), false)

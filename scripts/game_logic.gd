@@ -91,7 +91,7 @@ func _input(event: InputEvent) -> void:
 		get_tree().call_group("totems", "change_move_false")
 
 
-	if is_blue and mouse_pos.y > 130 and event.button_index == MOUSE_BUTTON_LEFT and blue_totem_amount > 0 and can_place_blue:
+	if is_blue and mouse_pos.y > 130 and event.button_index == MOUSE_BUTTON_LEFT and blue_totem_amount > 0 and can_place_blue and not start_game:
 		var blue_totem = BLUE_TOTEM.instantiate()
 		blue_totem.player = player
 		blue_totem.global_position = snapped(mouse_pos, Vector2(64, 64))
@@ -99,7 +99,7 @@ func _input(event: InputEvent) -> void:
 		blue_totem_amount -= 1
 		can_place_blue = false
 		blue_totem_timer.start()
-	elif is_red and mouse_pos.y > 130 and event.button_index == MOUSE_BUTTON_LEFT and red_totem_amount > 0 and can_place_red:
+	elif is_red and mouse_pos.y > 130 and event.button_index == MOUSE_BUTTON_LEFT and red_totem_amount > 0 and can_place_red and not start_game:
 		var red_totem = RED_TOTEM.instantiate()
 		red_totem.player = player
 		red_totem.global_position = snapped(mouse_pos, Vector2(64, 64))

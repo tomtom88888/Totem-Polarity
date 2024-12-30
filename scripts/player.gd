@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var friction = 0.032
+var friction = 0.02
 var is_gravity = false
 @onready var lose_timer: Timer = $LoseTimer
 var prev_pos

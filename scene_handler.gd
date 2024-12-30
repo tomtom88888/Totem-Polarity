@@ -6,7 +6,7 @@ var main_menu_node
 var level_menu_scene
 
 var levels_scene_dict = {
-	0: preload("res://levels/0/0_multi_level.tscn"),
+	0: preload("res://levels/3/3_multi_level.tscn"),
 	1: preload("res://levels/0/0_multi_level.tscn")
 }
 # Called when the node enters the scene tree for the first time.

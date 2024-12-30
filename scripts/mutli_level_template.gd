@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var level_to_course_dict = {
-	0: [preload("res://levels/0/0_course_1.tscn"), preload("res://levels/0/0_course_2.tscn"), preload("res://levels/0/0_course_3.tscn")],
+	0: [preload("res://levels/3/3_course_1.tscn")],
 	1: [preload("res://levels/0/0_course_1.tscn"), preload("res://levels/0/0_course_2.tscn"), preload("res://levels/0/0_course_3.tscn")],
 }
 const COURSE_01 = preload("res://levels/0/0_course_1.tscn")
