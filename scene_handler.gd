@@ -5,6 +5,10 @@ var current_scene
 var main_menu_node
 var level_menu_scene
 
+var levels_scene_dict = {
+	0: preload("res://levels/0/0_multi_level.tscn"),
+	1: preload("res://levels/0/0_multi_level.tscn")
+}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	main_menu_node = preload("res://scenes/main_menu.tscn")
@@ -12,6 +16,16 @@ func _ready() -> void:
 	add_child(current_scene)
 	level_menu_scene = preload("res://scenes/level_menu.tscn")
 	
+
+func to_multi_level(level):
+	scene_transition_animation.play("fade_in")
+	await get_tree().create_timer(0.5).timeout
+	
+	current_scene.queue_free()
+	current_scene = levels_scene_dict[level].instantiate()
+	
+	scene_transition_animation.play("fade_out")
+	add_child(current_scene)
 
 func main_menu():
 	scene_transition_animation.play("fade_in")
@@ -40,8 +54,9 @@ func switch_scene(scene):
 	await get_tree().create_timer(0.5).timeout
 	
 	current_scene.queue_free()
-	current_scene = scene.instantiate()
 	
+	current_scene = scene.instantiate()
+	print(current_scene)
 	scene_transition_animation.play("fade_out")
 	add_child(current_scene)
 

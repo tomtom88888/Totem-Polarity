@@ -38,7 +38,7 @@ func _on_lose_timer_timeout() -> void:
 		SoundPlayer.stop()
 		SoundPlayer.stream = lose_sound
 		SoundPlayer.play()
-		await get_tree().create_timer(6).timeout
+		await get_tree().create_timer(3).timeout
 		multi_level_logic.reload_current_course()
 		SoundPlayer.stream = ing_music
 	else:

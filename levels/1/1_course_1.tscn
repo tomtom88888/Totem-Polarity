@@ -1,42 +1,23 @@
-[gd_scene load_steps=21 format=4 uid="uid://c1rvy2l3g1ptl"]
+[gd_scene load_steps=20 format=4 uid="uid://btge7sdg1c433"]
 
-[ext_resource type="Script" path="res://scripts/game_logic.gd" id="1_eon0k"]
-[ext_resource type="FontFile" uid="uid://bmmn1uwaaao6p" path="res://fonts/Outfit-ExtraBold.ttf" id="2_wcu1a"]
-[ext_resource type="Texture2D" uid="uid://8ddvltan4xdr" path="res://sprites/CheckOff.png" id="3_woula"]
-[ext_resource type="Texture2D" uid="uid://de0x3p8jvp5n3" path="res://sprites/CheckOn.png" id="4_j1nvh"]
-[ext_resource type="Texture2D" uid="uid://eb6jcs4onbsv" path="res://sprites/BGLevel.png" id="5_huu1q"]
-[ext_resource type="Texture2D" uid="uid://cls8psijj0h33" path="res://sprites/back.png" id="6_fh30r"]
-[ext_resource type="Texture2D" uid="uid://klw01bp52uw7" path="res://sprites/RedTotemButton.png" id="7_eqtjt"]
-[ext_resource type="Texture2D" uid="uid://d0w1d27cdsvc5" path="res://sprites/BlueTotemButton.png" id="8_u58q0"]
-[ext_resource type="Texture2D" uid="uid://dgt0sso7bf1fc" path="res://sprites/Delete.png" id="9_ko14b"]
-[ext_resource type="Texture2D" uid="uid://vfki023yaxbl" path="res://sprites/StartButton.png" id="10_266fe"]
-[ext_resource type="Texture2D" uid="uid://bldfdab1yqjo5" path="res://sprites/Tileset.png" id="11_jnlji"]
-[ext_resource type="PackedScene" uid="uid://eskjbpwx220j" path="res://scenes/win_flag.tscn" id="12_iktnb"]
-[ext_resource type="PackedScene" uid="uid://fpptvpvtjw4w" path="res://scenes/player.tscn" id="13_4v73q"]
-[ext_resource type="PackedScene" uid="uid://cyxcsqnxjfij4" path="res://scenes/level_anim.tscn" id="14_3f4ju"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_sebjp"]
-font = ExtResource("2_wcu1a")
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_lddbq"]
-font = ExtResource("2_wcu1a")
-font_size = 66
-outline_size = 25
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_y4c8g"]
-font = ExtResource("2_wcu1a")
-font_size = 66
-outline_size = 25
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4ghv"]
-size = Vector2(65, 78)
+[ext_resource type="Script" path="res://scripts/game_logic.gd" id="1_y2gna"]
+[ext_resource type="Texture2D" uid="uid://bldfdab1yqjo5" path="res://sprites/Tileset.png" id="2_2jbpf"]
+[ext_resource type="FontFile" uid="uid://bmmn1uwaaao6p" path="res://fonts/Outfit-ExtraBold.ttf" id="3_jdw8d"]
+[ext_resource type="Texture2D" uid="uid://8ddvltan4xdr" path="res://sprites/CheckOff.png" id="4_xn8h6"]
+[ext_resource type="Texture2D" uid="uid://de0x3p8jvp5n3" path="res://sprites/CheckOn.png" id="5_kg0pb"]
+[ext_resource type="Texture2D" uid="uid://eb6jcs4onbsv" path="res://sprites/BGLevel.png" id="6_m2jyk"]
+[ext_resource type="Texture2D" uid="uid://cls8psijj0h33" path="res://sprites/back.png" id="7_cksw5"]
+[ext_resource type="Texture2D" uid="uid://klw01bp52uw7" path="res://sprites/RedTotemButton.png" id="8_u3sxc"]
+[ext_resource type="Texture2D" uid="uid://d0w1d27cdsvc5" path="res://sprites/BlueTotemButton.png" id="9_jtosa"]
+[ext_resource type="Texture2D" uid="uid://dgt0sso7bf1fc" path="res://sprites/Delete.png" id="10_wws27"]
+[ext_resource type="Texture2D" uid="uid://vfki023yaxbl" path="res://sprites/StartButton.png" id="11_po1qo"]
+[ext_resource type="PackedScene" uid="uid://eskjbpwx220j" path="res://scenes/win_flag.tscn" id="12_y4b1x"]
+[ext_resource type="PackedScene" uid="uid://fpptvpvtjw4w" path="res://scenes/player.tscn" id="13_7jfp7"]
+[ext_resource type="PackedScene" uid="uid://cyxcsqnxjfij4" path="res://scenes/level_anim.tscn" id="14_xdf6m"]
+[ext_resource type="PackedScene" uid="uid://ffnivqrimcqf" path="res://scenes/spike.tscn" id="15_gp4a1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jn8hd"]
-texture = ExtResource("11_jnlji")
+texture = ExtResource("2_2jbpf")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -52,14 +33,25 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_jn8hd")
 
-[node name="course1" type="Node2D"]
-script = ExtResource("1_eon0k")
+[sub_resource type="LabelSettings" id="LabelSettings_sebjp"]
+font = ExtResource("3_jdw8d")
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4ghv"]
+size = Vector2(65, 78)
+
+[node name="course3" type="Node2D"]
+script = ExtResource("1_y2gna")
 red_totem_amount = 1
-blue_totem_amount = 0
-course = 1
+blue_totem_amount = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAARAAkAAQABAAAAAAAQAAkAAQAAAAAAAAAPAAkAAQABAAAAAAAOAAkAAQABAAEAAAANAAkAAQAAAAEAAAAMAAkAAQABAAAAAAALAAkAAQAAAAAAAAAKAAkAAQAAAAEAAAAJAAkAAQABAAEAAAAIAAkAAQAAAAAAAAAHAAkAAQABAAAAAAAGAAkAAQAAAAEAAAAFAAkAAQABAAEAAAAEAAkAAQAAAAEAAAADAAkAAQABAAAAAAACAAkAAQAAAAAAAAABAAkAAQABAAAAAAAAAAkAAQAAAAAAAAAAAAoAAQAAAAEAAAABAAoAAQAAAAAAAAACAAoAAQABAAAAAAADAAoAAQABAAEAAAAEAAoAAQAAAAAAAAAFAAoAAQAAAAEAAAAGAAoAAQABAAAAAAAHAAoAAQAAAAEAAAAIAAoAAQAAAAAAAAAJAAoAAQABAAEAAAAKAAoAAQABAAAAAAALAAoAAQABAAEAAAAMAAoAAQAAAAAAAAANAAoAAQAAAAEAAAAOAAoAAQABAAAAAAAPAAoAAQAAAAAAAAAQAAoAAQAAAAEAAAARAAoAAQABAAAAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAEAAAABAAAAAQABAAAAAAABAAEAAQABAAEAAAACAAAAAQAAAAAAAAACAAEAAQAAAAEAAAADAAAAAQABAAAAAAADAAEAAQABAAEAAAAEAAAAAQAAAAAAAAAEAAEAAQAAAAEAAAAFAAAAAQABAAAAAAAFAAEAAQABAAEAAAAGAAAAAQAAAAAAAAAGAAEAAQAAAAEAAAAHAAAAAQABAAAAAAAHAAEAAQABAAEAAAAIAAAAAQAAAAAAAAAIAAEAAQAAAAEAAAAJAAAAAQABAAAAAAAJAAEAAQABAAEAAAAKAAAAAQAAAAAAAAAKAAEAAQAAAAEAAAALAAAAAQABAAAAAAALAAEAAQABAAEAAAAMAAAAAQAAAAAAAAAMAAEAAQAAAAEAAAANAAAAAQABAAAAAAANAAEAAQABAAEAAAAOAAAAAQAAAAAAAAAOAAEAAQAAAAEAAAAPAAAAAQABAAAAAAAPAAEAAQABAAEAAAAQAAAAAQAAAAAAAAAQAAEAAQAAAAEAAAARAAAAAQABAAAAAAARAAEAAQABAAEAAAAQAAIAAQAAAAAAAAAQAAMAAQAAAAEAAAARAAIAAQABAAAAAAARAAMAAQABAAEAAAAOAAIAAQAAAAAAAAAOAAMAAQAAAAEAAAAPAAIAAQABAAAAAAAPAAMAAQABAAEAAAAMAAIAAQAAAAAAAAAMAAMAAQAAAAEAAAANAAIAAQABAAAAAAANAAMAAQABAAEAAAAKAAIAAQAAAAAAAAAKAAMAAQAAAAEAAAALAAIAAQABAAAAAAALAAMAAQABAAEAAAAIAAIAAQAAAAAAAAAIAAMAAQAAAAEAAAAJAAIAAQABAAAAAAAJAAMAAQABAAEAAAAGAAIAAQAAAAAAAAAGAAMAAQAAAAEAAAAHAAIAAQABAAAAAAAHAAMAAQABAAEAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAEAAAAFAAIAAQABAAAAAAAFAAMAAQABAAEAAAABAAIAAQABAAAAAAABAAMAAQABAAEAAAACAAIAAQAAAAAAAAACAAMAAQAAAAEAAAADAAIAAQABAAAAAAADAAMAAQABAAEAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAEAAAAIAAgAAQAAAAAAAAAIAAcAAQABAAAAAAA=")
+tile_set = SubResource("TileSet_21fpx")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -71,12 +63,13 @@ offset_bottom = 364.0
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = -238.0
-offset_top = 135.0
-offset_right = -59.0
-offset_bottom = 158.0
-text = "Place down a red totem!"
+offset_left = -245.0
+offset_top = 136.0
+offset_right = -66.0
+offset_bottom = 159.0
+text = "Beware Of Spikes!"
 label_settings = SubResource("LabelSettings_sebjp")
+horizontal_alignment = 1
 
 [node name="CheckButton" type="CheckButton" parent="Control"]
 layout_mode = 1
@@ -92,15 +85,14 @@ offset_bottom = -192.0
 grow_horizontal = 0
 grow_vertical = 2
 focus_mode = 0
-theme_override_fonts/font = ExtResource("2_wcu1a")
+theme_override_fonts/font = ExtResource("3_jdw8d")
 theme_override_font_sizes/font_size = 30
-theme_override_icons/checked = ExtResource("3_woula")
-theme_override_icons/unchecked = ExtResource("4_j1nvh")
+theme_override_icons/checked = ExtResource("4_xn8h6")
+theme_override_icons/unchecked = ExtResource("5_kg0pb")
 button_pressed = true
 text = "GRID:"
 
 [node name="BG" type="TextureRect" parent="Control"]
-visible = false
 z_index = -1
 layout_mode = 1
 anchors_preset = 5
@@ -111,7 +103,8 @@ offset_top = -324.0
 offset_right = 556.0
 offset_bottom = 324.0
 grow_horizontal = 2
-texture = ExtResource("5_huu1q")
+mouse_filter = 2
+texture = ExtResource("6_m2jyk")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 0
@@ -124,12 +117,12 @@ theme_override_constants/separation = 10
 [node name="BackButton" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("6_fh30r")
+texture_normal = ExtResource("7_cksw5")
 
 [node name="RedButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-icon = ExtResource("7_eqtjt")
+icon = ExtResource("8_u3sxc")
 
 [node name="RedTotemsLeft" type="Label" parent="Control/HBoxContainer/RedButton"]
 layout_mode = 1
@@ -138,17 +131,16 @@ offset_top = -24.0
 offset_right = 97.715
 offset_bottom = 60.0
 scale = Vector2(0.3, 0.3)
-theme_override_fonts/font = ExtResource("2_wcu1a")
+theme_override_fonts/font = ExtResource("3_jdw8d")
 theme_override_font_sizes/font_size = 66
 text = "3"
-label_settings = SubResource("LabelSettings_lddbq")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BlueButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-icon = ExtResource("8_u58q0")
+icon = ExtResource("9_jtosa")
 
 [node name="BlueTotemsLeft" type="Label" parent="Control/HBoxContainer/BlueButton"]
 layout_mode = 0
@@ -157,17 +149,16 @@ offset_top = -24.0
 offset_right = 97.715
 offset_bottom = 60.0
 scale = Vector2(0.3, 0.3)
-theme_override_fonts/font = ExtResource("2_wcu1a")
+theme_override_fonts/font = ExtResource("3_jdw8d")
 theme_override_font_sizes/font_size = 66
 text = "3"
-label_settings = SubResource("LabelSettings_y4c8g")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DeleteButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-icon = ExtResource("9_ko14b")
+icon = ExtResource("10_wws27")
 
 [node name="DeleteArea" type="Area2D" parent="Control/HBoxContainer/DeleteButton"]
 
@@ -182,19 +173,15 @@ offset_top = -303.0
 offset_right = 610.0
 offset_bottom = -241.0
 scale = Vector2(-1, 1)
-icon = ExtResource("10_266fe")
+icon = ExtResource("11_po1qo")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAARAAkAAQABAAAAAAAQAAkAAQAAAAAAAAAPAAkAAQABAAAAAAAOAAkAAQABAAEAAAANAAkAAQAAAAEAAAAMAAkAAQABAAAAAAALAAkAAQAAAAAAAAAKAAkAAQAAAAEAAAAJAAkAAQABAAEAAAAIAAkAAQAAAAAAAAAHAAkAAQABAAAAAAAGAAkAAQAAAAEAAAAFAAkAAQABAAEAAAAEAAkAAQAAAAEAAAADAAkAAQABAAAAAAACAAkAAQAAAAAAAAABAAkAAQABAAAAAAAAAAkAAQAAAAAAAAAAAAoAAQAAAAEAAAABAAoAAQAAAAAAAAACAAoAAQABAAAAAAADAAoAAQABAAEAAAAEAAoAAQAAAAAAAAAFAAoAAQAAAAEAAAAGAAoAAQABAAAAAAAHAAoAAQAAAAEAAAAIAAoAAQAAAAAAAAAJAAoAAQABAAEAAAAKAAoAAQABAAAAAAALAAoAAQABAAEAAAAMAAoAAQAAAAAAAAANAAoAAQAAAAEAAAAOAAoAAQABAAAAAAAPAAoAAQAAAAAAAAAQAAoAAQAAAAEAAAARAAoAAQABAAAAAAA=")
-tile_set = SubResource("TileSet_21fpx")
+[node name="WinFlag" parent="." instance=ExtResource("12_y4b1x")]
+position = Vector2(677, 528)
 
-[node name="WinFlag" parent="." instance=ExtResource("12_iktnb")]
-position = Vector2(634, 524)
-
-[node name="Player" parent="." instance=ExtResource("13_4v73q")]
+[node name="Player" parent="." instance=ExtResource("13_7jfp7")]
 unique_name_in_owner = true
 z_index = -1
-position = Vector2(268, 544)
+position = Vector2(130, 543)
 scale = Vector2(0.5, 0.5)
 
 [node name="RedTotemTimer" type="Timer" parent="."]
@@ -205,8 +192,11 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
-[node name="level_anim" parent="." instance=ExtResource("14_3f4ju")]
-level_text = "LEVEL 0: PART 1"
+[node name="level_anim" parent="." instance=ExtResource("14_xdf6m")]
+level_text = "LEVEL 0: PART 3"
+
+[node name="Area2D" parent="." instance=ExtResource("15_gp4a1")]
+position = Vector2(423, 557)
 
 [connection signal="toggled" from="Control/CheckButton" to="." method="_on_grid_button_toggled"]
 [connection signal="pressed" from="Control/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
