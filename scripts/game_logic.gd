@@ -17,6 +17,7 @@ extends Node2D
 @onready var blue_totem_timer: Timer = $BlueTotemTimer
 @onready var win_scene = preload("res://scenes/win.tscn") as PackedScene
 
+signal goIntoExit
 
 var draw_grid = true
 var is_red = false
@@ -145,7 +146,7 @@ func _on_blue_totem_timer_timeout() -> void:
 
 
 func _on_win_entered(body: Node2D) -> void:
-	get_tree().change_scene_to_packed(win_scene)
+	goIntoExit.emit()
 
 
 func _on_delete_area_area_entered(area: Area2D) -> void:

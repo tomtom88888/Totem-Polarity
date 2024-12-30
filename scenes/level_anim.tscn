@@ -13,6 +13,8 @@ signal level_anim_finished
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var animation = animation_player.get_animation(\"level_start\")
+	animation.track_set_key_value(1, 0, level_text)
 	level.text =  level_text
 	await get_tree().create_timer(0.5).timeout
 	animation_player.play(\"level_start\")
@@ -79,7 +81,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(-0.000632484, 0.678161, 2.31827, 2.92954),
 "transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
-"values": [Vector2(393, -136), Vector2(393, 261), Vector2(393, 261), Vector2(393, -136)]
+"values": [Vector2(213.5, -136), Vector2(213.5, 261), Vector2(213.5, 261), Vector2(213.5, -136)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -134,17 +136,15 @@ libraries = {
 
 [node name="level" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -183.0
-offset_top = -459.999
-offset_right = 183.0
-offset_bottom = -333.999
+offset_left = 534.0
+offset_top = -441.0
+offset_right = 1259.0
+offset_bottom = -315.0
 grow_horizontal = 2
-grow_vertical = 2
+pivot_offset = Vector2(362, 63)
 text = "LEVEL 1"
 label_settings = SubResource("LabelSettings_k0bgv")
 horizontal_alignment = 1
