@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c4e24h0t0tk7d"]
+[gd_scene load_steps=19 format=4 uid="uid://bfj7ag7msfxns"]
 
 [ext_resource type="Script" path="res://scripts/game_logic.gd" id="1_hc3mk"]
 [ext_resource type="FontFile" uid="uid://bmmn1uwaaao6p" path="res://fonts/Outfit-ExtraBold.ttf" id="2_uytr6"]

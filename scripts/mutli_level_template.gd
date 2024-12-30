@@ -15,33 +15,33 @@ func _process(delta: float) -> void:
 func reload_current_course():
 	match active_course:
 		1:
-			$course1.queue_free()
+			get_child(0).queue_free()
 			var course_1 = COURSE_1.instantiate()
 			active_course = 1
 			course_1.connect("goIntoExit", _on_course_1_go_into_exit)
 			add_child(course_1)
 		2:
-			$course2.queue_free()
+			get_child(0).queue_free()
 			var course_2 = COURSE_2.instantiate()
 			active_course = 2
 			course_2.connect("goIntoExit", _on_course_2_go_into_exit)
 			add_child(course_2)
 		3:
-			$course3.queue_free()
+			get_child(0).queue_free()
 			var course_3 = COURSE_3.instantiate()
 			active_course = 3
 			course_3.connect("goIntoExit", finished_level)
 			add_child(course_3)
 
 func _on_course_1_go_into_exit() -> void:
-	$course1.queue_free()
+	get_child(0).queue_free()
 	var course_2 = COURSE_2.instantiate()
 	active_course = 2
 	course_2.connect("goIntoExit", _on_course_2_go_into_exit)
 	add_child(course_2)
 
 func _on_course_2_go_into_exit() -> void:
-	$course2.queue_free()
+	get_child(0).queue_free()
 	var course_3 = COURSE_3.instantiate()
 	active_course = 3
 	active_course = COURSE_3.instantiate()
@@ -49,4 +49,4 @@ func _on_course_2_go_into_exit() -> void:
 	add_child(course_3)
 
 func finished_level():
-	print("finished_level")
+	get_parent().switch_scene(preload("res://scenes/win.tscn"))

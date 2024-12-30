@@ -58,8 +58,12 @@ func _process(_delta: float) -> void:
 	
 	if blue_totem_amount == 0:
 		blue_button.modulate = Color("gray", 0.5)
+	else:
+		blue_button.modulate = Color("ffffff")
 	if red_totem_amount == 0:
 		red_button.modulate = Color("gray", 0.5)
+	else:
+		red_button.modulate = Color("ffffff")
 	if start_game:
 		is_blue = false
 		is_red = false
