@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpmp1auaj6hce"]
+[gd_scene load_steps=3 format=3 uid="uid://bjrccct05rt54"]
 
-[ext_resource type="Script" path="res://scripts/mutli_level_template.gd" id="1_ewxeh"]
-[ext_resource type="PackedScene" uid="uid://bfj7ag7msfxns" path="res://levels/0/0_course_1.tscn" id="2_e24p1"]
+[ext_resource type="Script" path="res://scripts/mutli_level_template.gd" id="1_rjunj"]
+[ext_resource type="PackedScene" uid="uid://dri6dywmb03ua" path="res://levels/1/1_course_1.tscn" id="2_ufepx"]
 
 [node name="TutorialMultiLevel" type="Node2D"]
-script = ExtResource("1_ewxeh")
+script = ExtResource("1_rjunj")
 
-[node name="course1" parent="." instance=ExtResource("2_e24p1")]
-
-[connection signal="goIntoExit" from="course1" to="." method="_on_course_1_go_into_exit"]
+[node name="course1" parent="." instance=ExtResource("2_ufepx")]

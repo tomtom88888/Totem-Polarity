@@ -25,6 +25,7 @@ signal goIntoExit
 var draw_grid = true
 var is_red = false
 var is_blue = false
+var spam_prev = false
 
 const RED_TOTEM = preload("res://scenes/red_totem.tscn")
 const BLUE_TOTEM = preload("res://scenes/blue_totem.tscn")
@@ -158,6 +159,7 @@ func _on_blue_totem_timer_timeout() -> void:
 
 func _on_win_entered(body: Node2D) -> void:
 	goIntoExit.emit()
+
 
 
 func _on_delete_area_area_entered(area: Area2D) -> void:
